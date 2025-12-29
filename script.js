@@ -59,10 +59,12 @@ const searchInput = document.querySelector('.search-input');
    UTILIDADES
 ========================= */
 function clearSitesRow() {
+    if (!sitesRow) return;
     sitesRow.classList.add('hidden');
     sitesRow.innerHTML = '';
     sitesRow.removeAttribute('style');
 }
+
 
 function getVisibleButtons() {
     return [...document.querySelectorAll('.category-btn')]
@@ -145,37 +147,9 @@ document.addEventListener('click', e => {
     if (!btn) return;
 
     const category = btn.dataset.category;
-    const sites = sitesData[category];
-    if (!sites) return;
-
-    const visibleButtons = getVisibleButtons();
-    const index = visibleButtons.indexOf(btn);
-    const columns = getColumnsCount();
-
-    const rowEndIndex =
-        Math.min(
-            Math.floor(index / columns) * columns + (columns - 1),
-            visibleButtons.length - 1
-        );
-
-    const insertAfter = visibleButtons[rowEndIndex];
-
-    sitesRow.innerHTML = `
-        <div class="sites-list">
-            ${sites.map(site => `
-                <button class="site-btn"
-                    data-name="${site.name}"
-                    data-description="${site.description}"
-                    data-url="${site.url}">
-                    ${site.name}
-                </button>
-            `).join('')}
-        </div>
-    `;
-
-    insertAfter.after(sitesRow);
-    sitesRow.classList.remove('hidden');
+    window.location.href = `category.html?cat=${category}`;
 });
+
 
 /* =========================
    MODAL
@@ -195,10 +169,18 @@ document.addEventListener('click', e => {
     modalOverlay.classList.add('active');
 });
 
-document.querySelector('.modal-close').addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', e => {
-    if (e.target === modalOverlay) closeModal();
-});
+if (modalOverlay) {
+    const closeBtn = document.querySelector('.modal-close');
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    modalOverlay.addEventListener('click', e => {
+        if (e.target === modalOverlay) closeModal();
+    });
+}
+
 
 function closeModal() {
     modalOverlay.classList.remove('active');
@@ -207,15 +189,18 @@ function closeModal() {
 /* =========================
    BUSCA
 ========================= */
-searchInput.addEventListener('input', e => {
-    const query = e.target.value.toLowerCase();
-    clearSitesRow();
+if (searchInput) {
+    searchInput.addEventListener('input', e => {
+        const query = e.target.value.toLowerCase();
+        clearSitesRow();
 
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.style.display =
-            btn.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.style.display =
+                btn.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
+        });
     });
-});
+}
+
 
 /* =========================
    INIT

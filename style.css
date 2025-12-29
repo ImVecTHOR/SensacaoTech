@@ -188,17 +188,6 @@ body {
     min-height: 200px;
 }
 
-/* Layout compacto dos sites - BOTÕES COLADOS */
-.sites-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .site-item {
     position: relative;
     display: flex;
@@ -663,21 +652,6 @@ body {
     flex-wrap: wrap;
 }
 
-.sites-row {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 15px 0 25px;
-}
-
-
-.sites-list {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 #buttonsGrid {
     display: flex;
     flex-wrap: wrap;
@@ -707,22 +681,6 @@ body {
     .category-btn {
         width: calc(50% - 10px);
     }
-}
-
-.sites-row {
-    grid-column: 1 / -1;
-    margin: 12px 0;
-}
-
-.sites-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.site-btn {
-    min-width: 120px;
 }
 
 @media (max-width: 600px) {
@@ -785,3 +743,210 @@ body {
 .email-btn:hover {
   background: #0d3841;
 }
+
+/* =========================
+   TABELA – MINI LISTA
+========================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.sites-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.sites-table thead {
+    border-bottom: 2px solid rgba(0, 255, 255, 0.4);
+}
+
+.sites-table th {
+    padding: 14px 12px;
+    text-align: left;
+    color: #00ffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+}
+
+.sites-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ddd;
+}
+
+/* Nome do site */
+.site-name {
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Descrição */
+.site-desc {
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* Link */
+.site-link a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.site-link a:hover {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    transform: translateX(4px);
+}
+
+/* Hover da linha inteira */
+.sites-table tbody tr:hover {
+    background: rgba(0, 255, 255, 0.05);
+}
+
+/* =========================
+   LISTA FLAT (ESTILO DIRECTORY)
+========================= */
+
+.sites-list-flat {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Item inteiro */
+.site-flat-item {
+    padding: 32px 38px;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 4px solid rgba(0, 255, 255, 0.4);
+    transition: all 0.25s ease;
+}
+
+/* Hover elegante */
+.site-flat-item:hover {
+    background: rgba(0, 255, 255, 0.04);
+    border-left-color: #00ffff;
+}
+
+/* Nome do site */
+.site-flat-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+/* Linha descrição + link */
+.site-flat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-flat-desc {
+    max-width: 60%; /* antes 70% */
+    font-size: 1.05rem;
+}
+
+/* =========================
+   BOTÃO FLAT – ACESSAR
+========================= */
+
+.site-flat-btn {
+    padding: 12px 26px;
+    border-radius: 30px;
+    background: rgba(0, 255, 255, 0.15);
+    border: 2px solid rgba(0, 255, 255, 0.45);
+    color: #00ffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+/* Hover elegante */
+.site-flat-btn:hover {
+    background: rgba(0, 255, 255, 0.25);
+    border-color: #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    transform: translateX(6px);
+}
+
+/* Active (clique) */
+.site-flat-btn:active {
+    transform: translateX(3px) scale(0.97);
+}
+
+.category-main {
+    margin-top: 140px; /* iguala visualmente ao index */
+}
+
+/* =========================
+   FLAT LIST — MOBILE (IGUAL AO PRINT)
+========================= */
+@media (max-width: 600px) {
+
+    .sites-list-flat {
+        padding: 0 16px;
+        gap: 32px;
+    }
+
+    .site-flat-item {
+        width: 100%;
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    /* Nome do site */
+    .site-flat-name {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+
+    /* Força layout em coluna */
+    .site-flat-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    /* Descrição com quebra curta (igual print) */
+    .site-flat-desc {
+        width: 100%;
+        max-width: 260px; /* 🔥 controla a quebra */
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    /* Botão grande */
+    .site-flat-btn {
+        width: 100%;
+        padding: 18px 0;
+        font-size: 1rem;
+        border-radius: 999px;
+        text-align: center;
+    }
+}
+
