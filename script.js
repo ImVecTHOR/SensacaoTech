@@ -20,14 +20,13 @@ const btn = document.getElementById("showEmail");
 const emailField = document.getElementById("email");
 
 if (btn) {
-  btn.addEventListener("click", () => {
-    const user = "techsensacao";
-    const domain = "gmail.com";
-    emailField.textContent = `${user}@${domain}`;
-    btn.remove(); // remove o botão depois de mostrar
-  });
+    btn.addEventListener("click", () => {
+        const user = "techsensacao";
+        const domain = "gmail.com";
+        emailField.textContent = `${user}@${domain}`;
+        btn.remove(); // remove o botão depois de mostrar
+    });
 }
-
 
 /* =========================
    DADOS DOS SITES
@@ -36,7 +35,7 @@ const sitesData = {
     games: [
         { name: 'Steam', url: 'https://store.steampowered.com/', description: 'Maior plataforma de jogos PC.' },
         { name: 'Epic Games', url: 'https://store.epicgames.com/', description: 'Jogos grátis semanais.' },
-        { name: 'itch.io', url: 'https://itch.io/', description: 'Jogos independentes.' }
+        { name: 'itch.io', url: 'https://itch.io/', description: 'Jogos independentes.', isNew: true }
     ],
     casino: [
         { name: 'Stake', url: 'https://stake.com/', description: 'Cassino crypto.' },
@@ -161,17 +160,22 @@ document.addEventListener('click', e => {
     const insertAfter = visibleButtons[rowEndIndex];
 
     sitesRow.innerHTML = `
-        <div class="sites-list">
-            ${sites.map(site => `
-                <button class="site-btn"
-                    data-name="${site.name}"
-                    data-description="${site.description}"
-                    data-url="${site.url}">
-                    ${site.name}
-                </button>
-            `).join('')}
-        </div>
-    `;
+    <div class="sites-list">
+        ${sites.map(site => `
+            <button class="site-btn"
+                data-name="${site.name}"
+                data-description="${site.description}"
+                data-url="${site.url}">
+                
+                ${site.name}
+
+                ${site.isNew ? '<span class="badge-new">NOVO</span>' : ''}
+            </button>
+        `).join('')}
+    </div>
+`;
+
+
 
     insertAfter.after(sitesRow);
     sitesRow.classList.remove('hidden');
@@ -191,6 +195,8 @@ document.addEventListener('click', e => {
     modalTitle.textContent = e.target.dataset.name;
     modalDescription.textContent = e.target.dataset.description;
     modalLink.href = e.target.dataset.url;
+    modalLink.setAttribute('data-url', e.target.dataset.url);
+
 
     modalOverlay.classList.add('active');
 });
@@ -221,3 +227,4 @@ searchInput.addEventListener('input', e => {
    INIT
 ========================= */
 applyFilter();
+

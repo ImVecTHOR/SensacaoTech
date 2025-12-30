@@ -66,7 +66,7 @@ body {
     text-shadow: 0 0 20px #00ffff;
 }
 
-.texto-padrao{
+.texto-padrao {
     font-size: 1.5rem;
     font-weight: 700;
     text-shadow: 0 0 20px #00ffff;
@@ -229,21 +229,6 @@ body {
     border-color: #00ffff;
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
     transform: translateY(-3px);
-}
-
-.site-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
-
-.site-btn:hover::before {
-    left: 100%;
 }
 
 /* Card MAIOR com overlay e botão X */
@@ -774,14 +759,109 @@ body {
 }
 
 .email-btn {
-  padding: 16px 24px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #222;
-  color: #fff;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #222;
+    color: #fff;
 }
 
 .email-btn:hover {
-  background: #0d3841;
+    background: #0d3841;
+}
+
+/* =========================
+   BALÃO DE FALA (SETINHA COLADA)
+========================= */
+
+.site-visit-btn {
+    position: relative;
+}
+
+/* Balão */
+.site-visit-btn::after {
+    content: attr(data-url);
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    max-width: 260px;
+    padding: 8px 12px;
+
+    background: rgba(0, 0, 0, 0.92);
+    color: #00ffff;
+    font-size: 0.75rem;
+
+    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+/* Setinha colada na borda */
+.site-visit-btn::before {
+    content: '';
+    position: absolute;
+
+    /* colada na borda inferior do balão */
+    top: calc(100% + 14px - 1px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid rgba(0, 0, 0, 0.92);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+
+/* Hover */
+.site-visit-btn:hover::after,
+.site-visit-btn:hover::before {
+    opacity: 1;
+}
+
+.site-visit-btn:hover::after {
+    transform: translateX(-50%) translateY(4px);
+}
+
+/* =========================
+   BADGE NOVO (PROMO)
+========================= */
+
+.site-btn {
+    position: relative;
+    overflow: visible; /* ISSO é o que faltava */
+}
+
+
+.badge-new {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    background: #e63946;
+    color: #fff;
+
+    font-size: 0.55rem;
+    font-weight: 800;
+
+    padding: 4px 7px;
+    border-radius: 999px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
 }
