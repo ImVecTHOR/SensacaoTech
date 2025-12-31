@@ -16,36 +16,21 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     });
 });
 
-const btn = document.getElementById("showEmail");
+/* =========================
+   EMAIL
+========================= */
+const showEmailBtn = document.getElementById("showEmail");
 const emailField = document.getElementById("email");
 
-if (btn) {
-    btn.addEventListener("click", () => {
+if (showEmailBtn) {
+    showEmailBtn.addEventListener("click", () => {
         const user = "techsensacao";
         const domain = "gmail.com";
         emailField.textContent = `${user}@${domain}`;
-        btn.remove(); // remove o botão depois de mostrar
+        showEmailBtn.remove();
     });
 }
 
-/* =========================
-   DADOS DOS SITES
-========================= */
-const sitesData = {
-    games: [
-        { name: 'Steam', url: 'https://store.steampowered.com/', description: 'Maior plataforma de jogos PC.' },
-        { name: 'Epic Games', url: 'https://store.epicgames.com/', description: 'Jogos grátis semanais.' },
-        { name: 'itch.io', url: 'https://itch.io/', description: 'Jogos independentes.', isNew: true }
-    ],
-    casino: [
-        { name: 'Stake', url: 'https://stake.com/', description: 'Cassino crypto.' },
-        { name: 'Roobet', url: 'https://roobet.com/', description: 'Cassino moderno.' }
-    ],
-    sports: [
-        { name: 'Bet365', url: 'https://www.bet365.com/', description: 'Apostas esportivas.' },
-        { name: 'Pinnacle', url: 'https://www.pinnacle.com/', description: 'Odds altas.' }
-    ]
-};
 
 /* =========================
    ELEMENTOS
@@ -55,45 +40,75 @@ const sitesRow = document.getElementById('sitesRow');
 const searchInput = document.querySelector('.search-input');
 
 /* =========================
+   ESTADO ORIGINAL (HTML)
+========================= */
+const originalCategoryOrder = [
+    ...document.querySelectorAll('.category-btn')
+];
+
+/* =========================
    UTILIDADES
 ========================= */
 function clearSitesRow() {
-    sitesRow.classList.add('hidden');
-    sitesRow.innerHTML = '';
-    sitesRow.removeAttribute('style');
+    const list = sitesRow.querySelector('.sites-list');
+
+    if (!list) {
+        sitesRow.classList.add('hidden');
+        sitesRow.innerHTML = '';
+        return;
+    }
+
+    // anima fechamento
+    list.classList.add('closing');
+
+    // remove após a animação
+    setTimeout(() => {
+        sitesRow.classList.add('hidden');
+        sitesRow.innerHTML = '';
+    }, 300); // mesmo tempo do slideUp
+}
+
+
+function restoreOriginalOrder() {
+    originalCategoryOrder.forEach(btn => {
+        btn.style.display = 'flex';
+        buttonsGrid.appendChild(btn);
+    });
 }
 
 function getVisibleButtons() {
-    return [...document.querySelectorAll('.category-btn')]
-        .filter(btn => btn.style.display !== 'none');
+    return originalCategoryOrder.filter(btn => btn.style.display !== 'none');
 }
 
 function getColumnsCount() {
-    const width = window.innerWidth;
-
-    if (width <= 600) {
-        return 2; // celular
-    }
-
-    if (width <= 1024) {
-        return 4; // tablet
-    }
-
-    return 5; // desktop
+    const w = window.innerWidth;
+    if (w <= 600) return 2;
+    if (w <= 1024) return 4;
+    return 5;
 }
 
-
 /* =========================
-   FILTRO / ORDENAÇÃO
+   FILTROS
 ========================= */
-let currentSort = 'az';
+let currentSort = '';
 let currentLetter = '';
 
 document.querySelectorAll('.sort-btn, .letter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
 
+        const isActive = btn.classList.contains('active');
+
         document.querySelectorAll('.sort-btn, .letter-btn')
             .forEach(b => b.classList.remove('active'));
+
+        clearSitesRow();
+
+        if (isActive) {
+            currentSort = '';
+            currentLetter = '';
+            restoreOriginalOrder();
+            return;
+        }
 
         btn.classList.add('active');
 
@@ -105,32 +120,30 @@ document.querySelectorAll('.sort-btn, .letter-btn').forEach(btn => {
             currentSort = '';
         }
 
-        clearSitesRow();
         applyFilter();
     });
 });
 
 function applyFilter() {
-    const buttons = [...document.querySelectorAll('.category-btn')];
-
-    let filtered = buttons;
+    let buttons = [...originalCategoryOrder];
 
     if (currentLetter) {
-        filtered = filtered.filter(btn =>
+        buttons = buttons.filter(btn =>
             btn.textContent.toLowerCase().startsWith(currentLetter)
         );
     }
 
     if (currentSort) {
-        filtered.sort((a, b) =>
+        buttons.sort((a, b) =>
             currentSort === 'az'
                 ? a.textContent.localeCompare(b.textContent)
                 : b.textContent.localeCompare(a.textContent)
         );
     }
 
-    buttons.forEach(btn => btn.style.display = 'none');
-    filtered.forEach(btn => {
+    originalCategoryOrder.forEach(btn => btn.style.display = 'none');
+
+    buttons.forEach(btn => {
         btn.style.display = 'flex';
         buttonsGrid.appendChild(btn);
     });
@@ -143,39 +156,45 @@ document.addEventListener('click', e => {
     const btn = e.target.closest('.category-btn');
     if (!btn) return;
 
-    const category = btn.dataset.category;
-    const sites = sitesData[category];
+    const isActive = btn.classList.contains('active');
+
+    document.querySelectorAll('.category-btn')
+        .forEach(b => b.classList.remove('active'));
+
+    if (isActive) {
+        clearSitesRow();
+        return;
+    }
+
+    btn.classList.add('active');
+
+    const sites = sitesData[btn.dataset.category];
     if (!sites) return;
 
     const visibleButtons = getVisibleButtons();
     const index = visibleButtons.indexOf(btn);
     const columns = getColumnsCount();
 
-    const rowEndIndex =
-        Math.min(
-            Math.floor(index / columns) * columns + (columns - 1),
-            visibleButtons.length - 1
-        );
+    const rowEndIndex = Math.min(
+        Math.floor(index / columns) * columns + (columns - 1),
+        visibleButtons.length - 1
+    );
 
     const insertAfter = visibleButtons[rowEndIndex];
 
     sitesRow.innerHTML = `
-    <div class="sites-list">
-        ${sites.map(site => `
-            <button class="site-btn"
-                data-name="${site.name}"
-                data-description="${site.description}"
-                data-url="${site.url}">
-                
-                ${site.name}
-
-                ${site.isNew ? '<span class="badge-new">NOVO</span>' : ''}
-            </button>
-        `).join('')}
-    </div>
-`;
-
-
+        <div class="sites-list">
+            ${sites.map(site => `
+                <button class="site-btn"
+                    data-name="${site.name}"
+                    data-description="${site.description}"
+                    data-url="${site.url}">
+                    ${site.name}
+                    ${site.isNew ? '<span class="badge-new">NOVO</span>' : ''}
+                </button>
+            `).join('')}
+        </div>
+    `;
 
     insertAfter.after(sitesRow);
     sitesRow.classList.remove('hidden');
@@ -190,25 +209,22 @@ const modalDescription = document.getElementById('modalDescription');
 const modalLink = document.getElementById('modalLink');
 
 document.addEventListener('click', e => {
-    if (!e.target.classList.contains('site-btn')) return;
+    const btn = e.target.closest('.site-btn');
+    if (!btn) return;
 
-    modalTitle.textContent = e.target.dataset.name;
-    modalDescription.textContent = e.target.dataset.description;
-    modalLink.href = e.target.dataset.url;
-    modalLink.setAttribute('data-url', e.target.dataset.url);
-
+    modalTitle.textContent = btn.dataset.name;
+    modalDescription.textContent = btn.dataset.description;
+    modalLink.href = btn.dataset.url;
 
     modalOverlay.classList.add('active');
 });
 
-document.querySelector('.modal-close').addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', e => {
-    if (e.target === modalOverlay) closeModal();
-});
+document.querySelector('.modal-close')
+    .addEventListener('click', () => modalOverlay.classList.remove('active'));
 
-function closeModal() {
-    modalOverlay.classList.remove('active');
-}
+modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+});
 
 /* =========================
    BUSCA
@@ -217,14 +233,9 @@ searchInput.addEventListener('input', e => {
     const query = e.target.value.toLowerCase();
     clearSitesRow();
 
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.style.display =
-            btn.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
+    originalCategoryOrder.forEach(btn => {
+        btn.style.display = btn.textContent
+            .toLowerCase()
+            .includes(query) ? 'flex' : 'none';
     });
 });
-
-/* =========================
-   INIT
-========================= */
-applyFilter();
-
