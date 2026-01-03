@@ -16,79 +16,60 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     });
 });
 
-/* =========================
-   EMAIL
-========================= */
-const showEmailBtn = document.getElementById("showEmail");
+const btn = document.getElementById("showEmail");
 const emailField = document.getElementById("email");
 
-if (showEmailBtn) {
-    showEmailBtn.addEventListener("click", () => {
+if (btn) {
+    btn.addEventListener("click", () => {
         const user = "techsensacao";
         const domain = "gmail.com";
         emailField.textContent = `${user}@${domain}`;
-        showEmailBtn.remove();
+        btn.remove(); // remove o botão depois de mostrar
     });
 }
-
 
 /* =========================
    ELEMENTOS
 ========================= */
 const buttonsGrid = document.getElementById('buttonsGrid');
-const sitesRow = document.getElementById('sitesRow');
-const searchInput = document.querySelector('.search-input');
-
-/* =========================
-   ESTADO ORIGINAL (HTML)
-========================= */
 const originalCategoryOrder = [
     ...document.querySelectorAll('.category-btn')
 ];
+
+const sitesRow = document.getElementById('sitesRow');
+const searchInput = document.querySelector('.search-input');
 
 /* =========================
    UTILIDADES
 ========================= */
 function clearSitesRow() {
-    const list = sitesRow.querySelector('.sites-list');
-
-    if (!list) {
-        sitesRow.classList.add('hidden');
-        sitesRow.innerHTML = '';
-        return;
-    }
-
-    // anima fechamento
-    list.classList.add('closing');
-
-    // remove após a animação
-    setTimeout(() => {
-        sitesRow.classList.add('hidden');
-        sitesRow.innerHTML = '';
-    }, 300); // mesmo tempo do slideUp
-}
-
-
-function restoreOriginalOrder() {
-    originalCategoryOrder.forEach(btn => {
-        btn.style.display = 'flex';
-        buttonsGrid.appendChild(btn);
-    });
+    sitesRow.classList.add('hidden');
+    sitesRow.innerHTML = '';
+    sitesRow.removeAttribute('style');
 }
 
 function getVisibleButtons() {
-    return originalCategoryOrder.filter(btn => btn.style.display !== 'none');
+    return [...document.querySelectorAll('.category-btn')]
+        .filter(btn => btn.style.display !== 'none');
 }
 
 function getColumnsCount() {
-    const w = window.innerWidth;
-    if (w <= 600) return 2;
-    if (w <= 1024) return 4;
-    return 5;
+    const width = window.innerWidth;
+
+    if (width <= 600) {
+        return 2; // celular
+    }
+
+    if (width <= 1024) {
+        return 4; // tablet
+    }
+
+    return 5; // desktop
 }
 
+
 /* =========================
-   FILTROS
+   FILTRO / ORDENAÇÃO
 ========================= */
 let currentSort = '';
 let currentLetter = '';
@@ -106,7 +87,7 @@ document.querySelectorAll('.sort-btn, .letter-btn').forEach(btn => {
         if (isActive) {
             currentSort = '';
             currentLetter = '';
-            restoreOriginalOrder();
+            restoreOriginalOrder(); // ← AQUI
             return;
         }
 
@@ -124,26 +105,35 @@ document.querySelectorAll('.sort-btn, .letter-btn').forEach(btn => {
     });
 });
 
+function restoreOriginalOrder() {
+    originalCategoryOrder.forEach(btn => {
+        btn.style.display = 'flex';
+        buttonsGrid.appendChild(btn);
+    });
+}
+
+
 function applyFilter() {
-    let buttons = [...originalCategoryOrder];
+    const buttons = [...document.querySelectorAll('.category-btn')];
+
+    let filtered = buttons;
 
     if (currentLetter) {
-        buttons = buttons.filter(btn =>
+        filtered = filtered.filter(btn =>
             btn.textContent.toLowerCase().startsWith(currentLetter)
         );
     }
 
     if (currentSort) {
-        buttons.sort((a, b) =>
+        filtered.sort((a, b) =>
             currentSort === 'az'
                 ? a.textContent.localeCompare(b.textContent)
                 : b.textContent.localeCompare(a.textContent)
         );
     }
 
-    originalCategoryOrder.forEach(btn => btn.style.display = 'none');
-
-    buttons.forEach(btn => {
+    buttons.forEach(btn => btn.style.display = 'none');
+    filtered.forEach(btn => {
         btn.style.display = 'flex';
         buttonsGrid.appendChild(btn);
     });
@@ -158,17 +148,20 @@ document.addEventListener('click', e => {
 
     const isActive = btn.classList.contains('active');
 
+    // remove active de todas
     document.querySelectorAll('.category-btn')
         .forEach(b => b.classList.remove('active'));
 
     if (isActive) {
+        // fechar categoria
         clearSitesRow();
         return;
     }
 
     btn.classList.add('active');
 
-    const sites = sitesData[btn.dataset.category];
+    const category = btn.dataset.category;
+    const sites = sitesData[category];
     if (!sites) return;
 
     const visibleButtons = getVisibleButtons();
@@ -209,22 +202,25 @@ const modalDescription = document.getElementById('modalDescription');
 const modalLink = document.getElementById('modalLink');
 
 document.addEventListener('click', e => {
-    const btn = e.target.closest('.site-btn');
-    if (!btn) return;
+    if (!e.target.classList.contains('site-btn')) return;
 
-    modalTitle.textContent = btn.dataset.name;
-    modalDescription.textContent = btn.dataset.description;
-    modalLink.href = btn.dataset.url;
+    modalTitle.textContent = e.target.dataset.name;
+    modalDescription.textContent = e.target.dataset.description;
+    modalLink.href = e.target.dataset.url;
+    modalLink.setAttribute('data-url', e.target.dataset.url);
+
 
     modalOverlay.classList.add('active');
 });
 
-document.querySelector('.modal-close')
-    .addEventListener('click', () => modalOverlay.classList.remove('active'));
-
+document.querySelector('.modal-close').addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', e => {
-    if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+    if (e.target === modalOverlay) closeModal();
 });
+
+function closeModal() {
+    modalOverlay.classList.remove('active');
+}
 
 /* =========================
    BUSCA
@@ -233,9 +229,13 @@ searchInput.addEventListener('input', e => {
     const query = e.target.value.toLowerCase();
     clearSitesRow();
 
-    originalCategoryOrder.forEach(btn => {
-        btn.style.display = btn.textContent
-            .toLowerCase()
-            .includes(query) ? 'flex' : 'none';
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.style.display =
+            btn.textContent.toLowerCase().includes(query) ? 'flex' : 'none';
     });
 });
+
+/* =========================
+   INIT
+========================= */
+// applyFilter();
