@@ -205,7 +205,7 @@ document.addEventListener('click', e => {
     if (!e.target.classList.contains('site-btn')) return;
 
     modalTitle.textContent = e.target.dataset.name;
-    modalDescription.textContent = e.target.dataset.description;
+    modalDescription.innerHTML = e.target.dataset.description;
     modalLink.href = e.target.dataset.url;
     modalLink.setAttribute('data-url', e.target.dataset.url);
 
