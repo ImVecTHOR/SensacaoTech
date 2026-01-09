@@ -57,7 +57,6 @@ const sitesData = {
             name: 'Cursify',
             url: 'https://cursify.vercel.app/',
             description: '<p>Esse é um site que serve como biblioteca de animações de cursor open-source pra desenvolvedores Web.</p> Ele reúne vários efeitos de cursor que você pode copiar e colar em projetos feitos com React e Next.js usando Tailwind CSS e Framer Motion. <br><strong>EM INGLÊS</strong>',
-            isNew: true
         },
     ],
 
@@ -66,7 +65,6 @@ const sitesData = {
             name: 'Animagraffs',
             url: 'https://animagraffs.com/',
             description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletanea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. <br><strong>EM INGLÊS</strong>',
-            isNew: true
         },
     ],
 
@@ -75,19 +73,16 @@ const sitesData = {
             name: 'GraphicsFamily',
             url: 'https://graphicsfamily.com/',
             description: '<p>Esse site reúne recursos gráficos gratuitos e pagos para designers e criadores de conteúdo.</p> Ícones, ilustrações, mckups, templates e elementos visuais que você pode usar em projetos, apresentações, sites e posts <br><strong>EM INGLÊS</strong>',
-            isNew: true
         },
         {
             name: 'Pixeden',
             url: 'https://www.pixeden.com/',
             description: 'Um site com mais alguns recursos visuais, mockups, ícones texturas e mais. Seja para web, apresentações ou arte gráfica, tem opções gratuitas e premium <br><strong>EM INGLÊS</strong>',
-            isNew: true
         },
         {
             name: 'Envato',
             url: 'https://elements.envato.com/',
             description: '<p>Envato é um catálogo enorme de recursos, cheio de templates, gráficos, fotos, vídeos, fontes, efeitos de som e mais, bom para design de video, web ou qualquer outro projeto, <strong> mas requer assinatura</strong> <br><strong>EM INGLÊS</strong>',
-            isNew: true
         },
     ],
 
@@ -96,7 +91,6 @@ const sitesData = {
             name: 'Smart Servier Medical',
             url: 'https://smart.servier.com/',
             description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possivel baixar essas imagens <br><strong>EM INGLÊS</strong>',
-            isNew: true
         }
     ],
     anime: [
@@ -104,7 +98,6 @@ const sitesData = {
             name: 'SakugaBooru',
             url: 'https://www.sakugabooru.com/',
             description: '<p>Esse é um site que funciona como um repositório de animações e cenas de anime (frames, cortes e movimentos). </p> É bem útil pra quem gosta de animes e quer cortes para edição.',
-            isNew: true
         },
     ],
     design: [
@@ -112,12 +105,18 @@ const sitesData = {
             name: 'Designspiration',
             url: 'https://www.designspiration.com/',
             description: 'Um lugar bom para encontrar referências criativas onde você pode navegar por imagens, ilustrações, tipografia, arte e layout.',
-            isNew: true
         },
         {
             name: 'Vectorizer.AI',
             url: 'https://pt.vectorizer.ai/',
             description: 'Ferramenta online que tranforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
+        },
+    ],
+        utilitarios: [
+        {
+            name: 'Sweezy-Cursors',
+            url: 'https://sweezy-cursors.com/',
+            description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
             isNew: true
         },
     ],
