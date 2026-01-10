@@ -169,7 +169,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -867,7 +867,7 @@ body {
 .badge-new {
     position: absolute;
     top: -12px;
-    right: -15px;
+    right: -10px;
 
     background: #e63946;
     color: #fff;

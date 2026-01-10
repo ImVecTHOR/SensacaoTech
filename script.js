@@ -235,7 +235,28 @@ searchInput.addEventListener('input', e => {
     });
 });
 
+function applyNewBadgeToCategories() {
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        const category = btn.dataset.category;
+        const sites = sitesData[category];
+
+        if (!sites) return;
+
+        const hasNew = sites.some(site => site.isNew === true);
+
+        if (hasNew && !btn.querySelector('.badge-new')) {
+            btn.insertAdjacentHTML(
+                'beforeend',
+                '<span class="badge-new">NOVO</span>'
+            );
+        }
+    });
+}
+
+
 /* =========================
    INIT
 ========================= */
 // applyFilter();
+
+applyNewBadgeToCategories();
