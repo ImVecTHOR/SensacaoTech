@@ -54,6 +54,12 @@ const sitesData = {
 
     programacao: [
         {
+            name: 'Reactbits',
+            url: 'https://reactbits.dev/',
+            description: '<p>Reactbits.dev é um repositório de componentes e ferramentas úteis pra React é. Basicamente é mais um acervo organizado que pode lhe conceder boas ideias</p> <p>Caso você goste de programação e de React principalmente, vale a pena dar uma olhada</p>',
+            isNew: true
+        },
+        {
             name: 'Cursify',
             url: 'https://cursify.vercel.app/',
             description: '<p>Esse é um site que serve como biblioteca de animações de cursor open-source pra desenvolvedores Web.</p> Ele reúne vários efeitos de cursor que você pode copiar e colar em projetos feitos com React e Next.js usando Tailwind CSS e Framer Motion. <br><strong>EM INGLÊS</strong>',
@@ -117,7 +123,6 @@ const sitesData = {
             name: 'Sweezy-Cursors',
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
-            isNew: true
         },
     ],
 };
