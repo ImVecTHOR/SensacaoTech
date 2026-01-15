@@ -57,7 +57,6 @@ const sitesData = {
             name: 'Reactbits',
             url: 'https://reactbits.dev/',
             description: '<p>Reactbits.dev é um repositório de componentes e ferramentas úteis pra React é. Basicamente é mais um acervo organizado que pode lhe conceder boas ideias</p> <p>Caso você goste de programação e de React principalmente, vale a pena dar uma olhada</p>',
-            isNew: true
         },
         {
             name: 'Cursify',
@@ -67,6 +66,12 @@ const sitesData = {
     ],
 
     informativo: [
+        {
+            name: 'Wolframalpha',
+            url: 'https://www.wolframalpha.com/',
+            description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vem com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p><strong>EM INGLÊS</strong>',
+            isNew: true
+        },
         {
             name: 'Animagraffs',
             url: 'https://animagraffs.com/',
@@ -116,6 +121,14 @@ const sitesData = {
             name: 'Vectorizer.AI',
             url: 'https://pt.vectorizer.ai/',
             description: 'Ferramenta online que tranforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
+        },
+    ],
+    gastronomia:[
+        {
+            name: 'TasteAtlas',
+            url: 'https://www.tasteatlas.com/map?ref=main-menu',
+            description:'<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
+            isNew: true
         },
     ],
         utilitarios: [
