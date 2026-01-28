@@ -70,7 +70,6 @@ const sitesData = {
             name: 'Wolframalpha',
             url: 'https://www.wolframalpha.com/',
             description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vem com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p><strong>EM INGLÊS</strong>',
-            isNew: true
         },
         {
             name: 'Animagraffs',
@@ -95,6 +94,12 @@ const sitesData = {
             url: 'https://elements.envato.com/',
             description: '<p>Envato é um catálogo enorme de recursos, cheio de templates, gráficos, fotos, vídeos, fontes, efeitos de som e mais, bom para design de video, web ou qualquer outro projeto, <strong> mas requer assinatura</strong> <br><strong>EM INGLÊS</strong>',
         },
+        {
+            name: 'Pacdora',
+            url: 'https://www.pacdora.com/',
+            description: 'Mais um site com mockups, deve ser necessario ter uma conta para baixar os modelos, mas não tenho certeza, fiquei com preguiça de ver...',
+            isNew:true
+        },
     ],
 
     biologia: [
@@ -102,8 +107,15 @@ const sitesData = {
             name: 'Smart Servier Medical',
             url: 'https://smart.servier.com/',
             description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possivel baixar essas imagens <br><strong>EM INGLÊS</strong>',
-        }
+        },
+        {
+            name: 'Biodigital',
+            url: 'https://human.biodigital.com',
+            description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p> <br><strong>EM INGLÊS</strong><br><strong>REQUER CONTA</strong>',
+            isNew:true
+        },
     ],
+
     anime: [
         {
             name: 'SakugaBooru',
@@ -111,6 +123,7 @@ const sitesData = {
             description: '<p>Esse é um site que funciona como um repositório de animações e cenas de anime (frames, cortes e movimentos). </p> É bem útil pra quem gosta de animes e quer cortes para edição.',
         },
     ],
+
     design: [
         {
             name: 'Designspiration',
@@ -128,14 +141,29 @@ const sitesData = {
             name: 'TasteAtlas',
             url: 'https://www.tasteatlas.com/map?ref=main-menu',
             description:'<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
-            isNew: true
         },
     ],
-        utilitarios: [
+        utilitarios_geral: [
         {
             name: 'Sweezy-Cursors',
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
+        },
+    ],
+        utilitarios_games: [
+        {
+            name: 'Map Genie',
+            url: 'https://mapgenie.io/',
+            description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
+            isNew:true
+        },
+    ],
+        games_navegador: [
+        {
+            name: 'Quizzity',
+            url: 'https://david-peter.de/quizzity/',
+            description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p> <strong> EM INGLÊS</strong>',
+            isNew:true
         },
     ],
 };
