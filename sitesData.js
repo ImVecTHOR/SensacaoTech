@@ -1,4 +1,4 @@
-// :[teste
+// :[
 //     {
 //         name: '',
 //         url: '',
@@ -16,6 +16,12 @@ const sitesData = {
             url: 'https://floor796.com/',
             description: '<p>Floor 796 é um projeto feito por uma única pessoa que mostra um “andar” animado e interativo, cheio de personagens e referências da cultura pop.</p> Tem coisa de anime, games, filmes, séries e memes espalhados por todo lado. A ideia é explorar sem pressa, ir clicando, reconhecendo referências e encontrando vários easter eggs escondidos. É o tipo de site para curar o tédio.<br><strong>EM INGLÊS</strong>',
         },
+	{
+	    name: 'Zoomquilt',
+	    url: 'https://zoomquilt.org/',
+	    description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse.</p>',
+	    isNew:true
+	} 
     ],
 
     cursos: [
