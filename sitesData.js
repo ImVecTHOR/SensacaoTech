@@ -21,7 +21,7 @@ const sitesData = {
 	    url: 'https://zoomquilt.org/',
 	    description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse.</p>',
 	    isNew:true
-	} 
+	}
     ],
 
     cursos: [
@@ -104,7 +104,6 @@ const sitesData = {
             name: 'Pacdora',
             url: 'https://www.pacdora.com/',
             description: 'Mais um site com mockups, deve ser necessario ter uma conta para baixar os modelos, mas não tenho certeza, fiquei com preguiça de ver...',
-            isNew:true
         },
     ],
 
@@ -118,7 +117,6 @@ const sitesData = {
             name: 'Biodigital',
             url: 'https://human.biodigital.com',
             description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p> <br><strong>EM INGLÊS</strong><br><strong>REQUER CONTA</strong>',
-            isNew:true
         },
     ],
 
@@ -161,7 +159,6 @@ const sitesData = {
             name: 'Map Genie',
             url: 'https://mapgenie.io/',
             description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
-            isNew:true
         },
     ],
         games_navegador: [
@@ -169,7 +166,6 @@ const sitesData = {
             name: 'Quizzity',
             url: 'https://david-peter.de/quizzity/',
             description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p> <strong> EM INGLÊS</strong>',
-            isNew:true
         },
     ],
 };
