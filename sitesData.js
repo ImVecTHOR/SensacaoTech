@@ -7,7 +7,9 @@
 //     }
 //],
 
-//<br><strong>EM INGLÊS</strong>
+// <br><strong>EM INGLÊS</strong>
+// <strong> REQUER ASSINATURA</strong>
+// <strong> REQUER CONTA</strong>
 
 const sitesData = {
     destaques: [
@@ -16,12 +18,12 @@ const sitesData = {
             url: 'https://floor796.com/',
             description: '<p>Floor 796 é um projeto feito por uma única pessoa que mostra um “andar” animado e interativo, cheio de personagens e referências da cultura pop.</p> Tem coisa de anime, games, filmes, séries e memes espalhados por todo lado. A ideia é explorar sem pressa, ir clicando, reconhecendo referências e encontrando vários easter eggs escondidos. É o tipo de site para curar o tédio.<br><strong>EM INGLÊS</strong>',
         },
-	{
-	    name: 'Zoomquilt',
-	    url: 'https://zoomquilt.org/',
-	    description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse.</p>',
-	    isNew:true
-	}
+        {
+            name: 'Zoomquilt',
+            url: 'https://zoomquilt.org/',
+            description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse.</p>',
+            isNew: true
+        }
     ],
 
     cursos: [
@@ -42,20 +44,16 @@ const sitesData = {
 
     gaming: [
         {
-            name: 'Steam',
-            url: 'https://store.steampowered.com/',
-            description: 'Maior plataforma de jogos PC. '
-        },
-        {
-            name: 'Epic Games',
-            url: 'https://store.epicgames.com/',
-            description: 'Jogos grátis semanais. Dona de Fortnite, Rocket League entre outros ai'
-        },
-        {
             name: 'itch.io',
             url: 'https://itch.io/',
             description: '<p>Uma plataforma de jogos indie onde criadores publicam seus próprios jogos.</p> Tem jogos gratuitos, pagos, projetos malucos que você não encontra em grandes plataformas.',
-        }
+        },
+        {
+            name: 'Gamejolt',
+            url: 'https://gamejolt.com/',
+            description: '<p>gamejolt é uma plataforma/game hub indie onde você pode achar, jogar e baixar jogos feitos por desenvolvedores do mundo todo. Tem de jogos clássicos a projetos experimentais e um ambiente bem vivo pra quem ama jogos “fora do mainstream”.</p> <p>É ideia é parecida com o itch.io.</p>',
+            isNew:true
+        },
     ],
 
     programacao: [
@@ -140,32 +138,62 @@ const sitesData = {
             description: 'Ferramenta online que tranforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
         },
     ],
-    gastronomia:[
+    gastronomia: [
         {
             name: 'TasteAtlas',
             url: 'https://www.tasteatlas.com/map?ref=main-menu',
-            description:'<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
+            description: '<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
         },
     ],
-        utilitarios_geral: [
+    utilitarios_geral: [
+        {
+            name: 'SEO Studio',
+            url: 'https://seostudio.tools/pt',
+            description: 'SEO Studio é uma plataforma online gratuita que reúne várias ferramentas digitais voltadas para ajudar quem cria conteúdo, administra sites ou quer mais praticidade com certas tarefas na internet. Em vez de ser um único serviço, ele funciona como um hub de utilitários fáceis de acessar direto no navegador, com foco em SEO, análise de sites, manipulação de texto e até tarefas de Youtube e programação',
+            isNew:true
+        },
         {
             name: 'Sweezy-Cursors',
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
         },
     ],
-        utilitarios_games: [
+    utilitarios_games: [
         {
             name: 'Map Genie',
             url: 'https://mapgenie.io/',
             description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
         },
     ],
-        games_navegador: [
+    games_navegador: [
         {
             name: 'Quizzity',
             url: 'https://david-peter.de/quizzity/',
             description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p> <strong> EM INGLÊS</strong>',
+        },
+    ],
+    idiomas: [
+        {
+            name: 'LingoHut',
+            url: 'https://www.lingohut.com/',
+            description: '<p>LingoHut é um site de aprendizado de idiomas gratuito e sem cadastro, com lições curtas pra treinar vocabulário, frases e pronúncia em dezenas de línguas diferentes.</p> <p>A experiência é bem simples e direta: não precisa instalar nada nem fazer login. Basta selecionar a língua que quer estudar e começar a lição. Cada lição costuma focar em palavras e frases que você usaria no dia a dia, com explicações curtas e áudio pra ajudar na pronúncia.</p>',
+            isNew:true
+        },
+    ],
+    diretorios_sites: [
+        {
+            name: 'Mr Free Tools',
+            url: 'https://mrfreetools.com/',
+            description: '<p>mrfreetools.com é um site de curadoria e busca de ferramentas gratuitas e recursos online que facilita encontrar soluções úteis sem precisar pagar ou se cadastrar. A ideia é reunir num só lugar softwares, apps, serviços e utilitários com versões gratuitas, organizados por categorias e com filtros pra ajudar a achar o que você precisa.</p><br> <strong> EM INGLÊS</strong>',
+            isNew:true
+        },
+    ],
+    trabalho: [
+        {
+            name: 'Eureca',
+            url: 'https://app.eureca.me/',
+            description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se increver em processos seletivos e acompanhar atividades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se increver em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> <strong> REQUER CONTA</strong> ',
+            isNew:true
         },
     ],
 };
