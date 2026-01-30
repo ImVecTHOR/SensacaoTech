@@ -171,7 +171,22 @@ const sitesData = {
             url: 'https://david-peter.de/quizzity/',
             description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p> <strong> EM INGLÊS</strong>',
         },
-    ],
+	{
+	    name: 'Lostgamer.io',
+	    url: 'https://lostgamer.io/',
+	    description: 'Lostgamer é um game online semelhante ao GeoGuessr porém tratando de mapas de videogames. Você cai num ponto aleatório de um mapa de jogo (como Elden Ring, GTA, Fortnite, Genshin Impact etc.) e tem que adivinhar onde está usando o visual ao redor, no momento em que estou documentando sobre, o jogo tem modo solo somente, com o modo  multiplayer em desenvolvimento.',
+	    isNew:true
+	},
+	{
+	    name: 'Flagle.io',
+	    url: 'https://www.flagle.io/',
+	    description: 'Um jogo que te desafia diariamente para divinhar a bandeira de um país, ao terminar você tem rodadas bônus, sendo, acertar a quantidade da população, moeda, território etc. um jogo interessante para quer curte geografia.', 
+	    isNew:true
+	},
+	{
+	    name: '',
+	},
+],
     idiomas: [
         {
             name: 'LingoHut',
@@ -195,5 +210,11 @@ const sitesData = {
             description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se increver em processos seletivos e acompanhar atividades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se increver em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> <strong> REQUER CONTA</strong> ',
             isNew:true
         },
-    ],
+  	{
+	    name: 'Sólides',
+	    url: 'https://vagas.solides.com.br/',
+	    description: '<p>Sólides Vagas é uma portal de vagas da Sólides, aqui você encontra posições de trabalho anunciadas por empresas parceiras, possui oportunidades de emprego em diversas áreas e cidades do Brasil.</p> <p>Tem um certo foco em <strong>pequenas e médias empresas</strong></p> <br> <strong>REQUER CONTA</strong>',
+	    isNew:true
+	},
+ ],
 };
