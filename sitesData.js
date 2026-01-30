@@ -21,7 +21,7 @@ const sitesData = {
         {
             name: 'Zoomquilt',
             url: 'https://zoomquilt.org/',
-            description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse.</p>',
+            description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse site.</p> <p>(É graças a esse site que eu criei o interesse em descobrir e pesquisar por sites interessantes e desconhecidos na internet, basicamente é graças a ele que esse site aqui existe)</p>',
             isNew: true
         }
     ],
