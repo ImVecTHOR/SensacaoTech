@@ -182,6 +182,11 @@ const sitesData = {
             name: 'Flagle Game',
             url: 'https://flagle-game.com/',
             description: 'A ideia nesse aqui também é acertar bandeiras, a maneira que você faz isso é um pouco diferente, ainda sim divertida, tem um moodo diario mas tambem possui um modo infinito',
+        },
+        {
+            name: 'Contexto',
+            url: 'https://contexto.me/pt/',
+            description: 'Contexto é um jogo de adivinhação de palavras, você vai precisar descobrir uma palavra secreta dando palpites e pistas de "quente ou frio"',
             isNew:true
         },
     ],
