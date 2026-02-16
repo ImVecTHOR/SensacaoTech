@@ -50,7 +50,7 @@ const sitesData = {
         {
             name: 'Gamejolt',
             url: 'https://gamejolt.com/',
-            description: '<p>gamejolt é uma plataforma/game hub indie onde você pode achar, jogar e baixar jogos feitos por desenvolvedores do mundo todo. Tem de jogos clássicos a projetos experimentais e um ambiente bem vivo pra quem ama jogos “fora do mainstream”.</p> <p>É ideia é parecida com o itch.io.</p>',
+            description: '<p>gamejolt é uma plataforma/game hub indie onde você pode achar, jogar e baixar jogos feitos por desenvolvedores do mundo todo. Tem de jogos clássicos a projetos experimentais e um ambiente bem vivo pra quem ama jogos “fora do mainstream”.</p> <p>A ideia é parecida com o itch.io.</p>',
         },
     ],
 
@@ -58,7 +58,7 @@ const sitesData = {
         {
             name: 'Reactbits',
             url: 'https://reactbits.dev/',
-            description: '<p>Reactbits.dev é um repositório de componentes e ferramentas úteis pra React é. Basicamente é mais um acervo organizado que pode lhe conceder boas ideias</p> <p>Caso você goste de programação e de React principalmente, vale a pena dar uma olhada</p>',
+            description: '<p>Reactbits.dev é um repositório de componentes e ferramentas úteis pra React. Basicamente é mais um acervo organizado que pode lhe conceder boas ideias</p> <p>Caso você goste de programação e de React principalmente, vale a pena dar uma olhada</p>',
         },
         {
             name: 'Cursify',
@@ -71,12 +71,12 @@ const sitesData = {
         {
             name: 'Wolframalpha',
             url: 'https://www.wolframalpha.com/',
-            description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vem com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p><strong>EM INGLÊS</strong>',
+            description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vêm com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p><strong>EM INGLÊS</strong>',
         },
         {
             name: 'Animagraffs',
             url: 'https://animagraffs.com/',
-            description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletanea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. <br><strong>EM INGLÊS</strong>',
+            description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletânea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. <br><strong>EM INGLÊS</strong>',
         },
     ],
 
@@ -84,7 +84,7 @@ const sitesData = {
         {
             name: 'GraphicsFamily',
             url: 'https://graphicsfamily.com/',
-            description: '<p>Esse site reúne recursos gráficos gratuitos e pagos para designers e criadores de conteúdo.</p> Ícones, ilustrações, mckups, templates e elementos visuais que você pode usar em projetos, apresentações, sites e posts <br><strong>EM INGLÊS</strong>',
+            description: '<p>Esse site reúne recursos gráficos gratuitos e pagos para designers e criadores de conteúdo.</p> Ícones, ilustrações, mockups, templates e elementos visuais que você pode usar em projetos, apresentações, sites e posts <br><strong>EM INGLÊS</strong>',
         },
         {
             name: 'Pixeden',
@@ -133,7 +133,7 @@ const sitesData = {
         {
             name: 'Vectorizer.AI',
             url: 'https://pt.vectorizer.ai/',
-            description: 'Ferramenta online que tranforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
+            description: 'Ferramenta online que transforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
         },
     ],
     gastronomia: [
@@ -176,12 +176,12 @@ const sitesData = {
         {
             name: 'Flagle.io',
             url: 'https://www.flagle.io/',
-            description: 'Um jogo que te desafia diariamente para divinhar a bandeira de um país, ao terminar você tem rodadas bônus, sendo, acertar a quantidade da população, moeda, território etc. um jogo interessante para quer curte geografia.',
+            description: 'Um jogo que te desafia diariamente para adivinhar a bandeira de um país, ao terminar você tem rodadas bônus, sendo, acertar a quantidade da população, moeda, território etc. um jogo interessante para quem curte geografia.',
         },
         {
             name: 'Flagle Game',
             url: 'https://flagle-game.com/',
-            description: 'A ideia nesse aqui também é acertar bandeiras, a maneira que você faz isso é um pouco diferente, ainda sim divertida, tem um moodo diario mas tambem possui um modo infinito',
+            description: 'A ideia nesse aqui também é acertar bandeiras, a maneira que você faz isso é um pouco diferente, ainda sim divertida, tem um modo diário mas também possui um modo infinito',
         },
         {
             name: 'Contexto',
@@ -208,12 +208,12 @@ const sitesData = {
         {
             name: 'Eureca',
             url: 'https://app.eureca.me/',
-            description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se increver em processos seletivos e acompanhar atividades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se increver em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> <strong> REQUER CONTA</strong> ',
+            description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se inscrever em processos seletivos e acompanhar ativídades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se inscrever em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> <strong> REQUER CONTA</strong> ',
         },
         {
             name: 'Sólides',
             url: 'https://vagas.solides.com.br/',
-            description: '<p>Sólides Vagas é uma portal de vagas da Sólides, aqui você encontra posições de trabalho anunciadas por empresas parceiras, possui oportunidades de emprego em diversas áreas e cidades do Brasil.</p> <p>Tem um certo foco em <strong>pequenas e médias empresas</strong></p> <br> <strong>REQUER CONTA</strong>',
+            description: '<p>Sólides Vagas é um portal de vagas da Sólides, aqui você encontra posições de trabalho anunciadas por empresas parceiras, possui oportunidades de emprego em diversas áreas e cidades do Brasil.</p> <p>Tem um certo foco em <strong>pequenas e médias empresas</strong></p> <br> <strong>REQUER CONTA</strong>',
         },
     ],
 };
