@@ -12,6 +12,20 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("images/LOGO/sem_neon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: min(84vmin, 720px);
+    opacity: 0.05;
+    filter: saturate(0.9);
+    z-index: -1;
+    pointer-events: none;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -177,7 +191,7 @@ body {
 
 .category-btn {
     height: 80px;
-    background: rgba(40, 40, 40, 0.6);
+    background: rgb(40, 40, 40);
     color: #ffffff;
     border: 2px solid transparent;
     border-radius: 20px;
