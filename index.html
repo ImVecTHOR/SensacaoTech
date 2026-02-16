@@ -39,6 +39,7 @@
             <p class="texto-padrao">Um "hub" de sites que encontro pela internet</p>
             <p class="texto-padrao">Recomendo usar o Brave como navegador, com ele você deixa de ver propagandas</p>
 
+
             <!-- FILTROS -->
             <div class="sort-container">
                 <button class="sort-btn active" data-sort="az">A-Z</button>
@@ -77,9 +78,20 @@
 
             <div class="search-container">
                 <div class="search-input-wrapper">
-                    <input type="text" class="search-input" placeholder="Pesquise por alguma categoria!">
+                    <input type="text" class="search-input" placeholder="Pesquise por categoria ou site!">
                 </div>
             </div>
+
+
+            <section class="quick-links-section" id="quickLinksSection">
+                <h2>⚡ Atalhos Rápidos</h2>
+                <div class="quick-links-grid" id="quickLinksGrid"></div>
+            </section>
+
+            <section class="favorites-section hidden" id="favoritesSection">
+                <h2>⭐ Favoritos</h2>
+                <div class="favorites-grid" id="favoritesGrid"></div>
+            </section>
 
             <!-- GRID PRINCIPAL -->
             <div class="buttons-grid" id="buttonsGrid">
@@ -87,7 +99,7 @@
                 <!-- BOTÕES DE CATEGORIA -->
                 <button class="category-btn" data-category="destaques">DESTAQUES</button>
                 <button class="category-btn" data-category="gaming">Gaming</button>
-                <button class="category-btn" data-category="games_navegador">Jogos de<br>navegador</button>
+                <button class="category-btn" data-category="games_navegador">Jogos de<br>navegador</button>                
                 <button class="category-btn" data-category="cursos">Cursos</button>
                 <button class="category-btn" data-category="trabalho">Vagas de<br>Trabalho</button>
                 <button class="category-btn" data-category="idiomas">Idiomas</button>
@@ -102,7 +114,7 @@
                 <button class="category-btn" data-category="design">Design</button>
                 <button class="category-btn" data-category="utilitarios_geral">Utilitários<br>geral</button>
                 <button class="category-btn" data-category="utilitarios_games">Utilitários<br>games</button>
-            </div>
+	    </div>
 
             <!-- CONTAINER DINÂMICO DOS SITES -->
             <!-- ESTE ELEMENTO SERÁ MOVIDO PELO JS -->
