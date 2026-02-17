@@ -186,6 +186,19 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         });
     }
 
+        function animateButtonsCascade(visibleButtons, rowEndIndex) {
+        const affectedButtons = visibleButtons.slice(rowEndIndex + 1);
+        if (!affectedButtons.length) return;
+
+        affectedButtons.forEach((button, index) => {
+            button.classList.remove('category-btn-cascade');
+            button.style.setProperty('--cascade-index', String(index));
+            void button.offsetWidth;
+            button.classList.add('category-btn-cascade');
+        });
+    }
+
+
     document.querySelectorAll('.sort-btn, .letter-btn').forEach(filterBtn => {
         filterBtn.addEventListener('click', () => {
             const isActive = filterBtn.classList.contains('active');
@@ -249,6 +262,7 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
         renderSitesList(sites);
         insertAfter.after(sitesRow);
+        animateButtonsCascade(visibleButtons, rowEndIndex);
     });
 
     searchInput.addEventListener('input', event => {

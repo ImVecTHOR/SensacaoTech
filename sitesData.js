@@ -58,6 +58,11 @@ const sitesData = {
             url: 'https://gamejolt.com/',
             description: '<p>gamejolt é uma plataforma/game hub indie onde você pode achar, jogar e baixar jogos feitos por desenvolvedores do mundo todo. Tem de jogos clássicos a projetos experimentais e um ambiente bem vivo pra quem ama jogos “fora do mainstream”.</p> <p>A ideia é parecida com o itch.io.</p>',
         },
+        {
+            name: 'Map Genie',
+            url: 'https://mapgenie.io/',
+            description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
+        },
     ],
 
     programacao: [
@@ -165,13 +170,6 @@ const sitesData = {
             name: 'Sweezy-Cursors',
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
-        },
-    ],
-    utilitarios_games: [
-        {
-            name: 'Map Genie',
-            url: 'https://mapgenie.io/',
-            description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
         },
     ],
     games_navegador: [
