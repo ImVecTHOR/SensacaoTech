@@ -71,6 +71,12 @@ const sitesData = {
             url: 'https://cursify.vercel.app/',
             description: '<p>Esse é um site que serve como biblioteca de animações de cursor open-source pra desenvolvedores Web.</p> Ele reúne vários efeitos de cursor que você pode copiar e colar em projetos feitos com React e Next.js usando Tailwind CSS e Framer Motion. <br><strong>EM INGLÊS</strong>',
         },
+        {
+            name: 'Devicon.dev',
+            url: 'https://devicon.dev/',
+            description: 'Devicon é uma biblioteca de ícones de tecnologia com logos de linguagens, frameworks, ferramentas e plataformas prontos para usar em sites ou projetos dev sem esforço :)',
+            isNew:true
+        },
     ],
 
     informativo: [
@@ -198,6 +204,12 @@ const sitesData = {
             name: 'Conexo',
             url: 'https://conexo.ws',
             description: 'Conexo é um jogo de palavras onde você precisa formar 4 grupos de 4 palavras conectadas por um tema secreto. funciona como um desafio diário que testa seu raciocínio.',
+            isNew:true
+        },
+        {
+            name: 'Rhythm Plus',
+            url: 'https://rhythm-plus.com/',
+            description: 'Esse aqui é um jogo de ritmo multiplayer onde você pode jogar e criar músicas/mapas com a comunidade. As notas descem na tela no ritmo da música e você tem que apertar as teclas certas no momento certo.',
             isNew:true
         },
     ],
