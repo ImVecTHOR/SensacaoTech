@@ -1242,3 +1242,14 @@ kbd {
         justify-self: start;
     }
 }
+
+/* Espaço extra para evitar corte visual dos badges/linhas em resultados */
+.sites-row .sites-list {
+    padding: 14px 8px 14px;
+    row-gap: 14px;
+}
+
+.sites-row .site-btn {
+    margin-top: 6px;
+    margin-bottom: 2px;
+}

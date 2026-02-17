@@ -89,6 +89,7 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
     let currentLetter = '';
     let activeCategoryBtn = null;
     let sitesRowCloseTimer = null;
+    let sitesRowExpandTimer = null;
 
     function resetActiveCategory() {
         document.querySelectorAll('.category-btn')
@@ -137,6 +138,11 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
     }
 
     function clearSitesRow({ immediate = false, onClosed = null } = {}) {
+        if (sitesRowExpandTimer) {
+            clearTimeout(sitesRowExpandTimer);
+            sitesRowExpandTimer = null;
+        }
+
         if (sitesRowCloseTimer) {
             clearTimeout(sitesRowCloseTimer);
             sitesRowCloseTimer = null;
@@ -260,6 +266,11 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             sitesRowCloseTimer = null;
         }
 
+        if (sitesRowExpandTimer) {
+            clearTimeout(sitesRowExpandTimer);
+            sitesRowExpandTimer = null;
+        }
+
         const hadContent = Boolean(sitesRow.innerHTML.trim()) && sitesRow.classList.contains('is-open');
         const startHeight = startCollapsed ? 0 : (hadContent ? sitesRow.scrollHeight : 0);
 
@@ -288,6 +299,13 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         requestAnimationFrame(() => {
             sitesRow.style.maxHeight = `${endHeight}px`;
             sitesRow.style.opacity = '1';
+
+            sitesRowExpandTimer = setTimeout(() => {
+                if (sitesRow.classList.contains('is-open')) {
+                    sitesRow.style.maxHeight = 'none';
+                }
+                sitesRowExpandTimer = null;
+            }, ROW_TRANSITION_MS + 30);
         });
     }
 
