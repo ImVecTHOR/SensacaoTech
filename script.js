@@ -83,11 +83,60 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         ...document.querySelectorAll('.category-btn')
     ];
 
+    const ROW_TRANSITION_MS = 360;
+
     let currentSort = '';
-    let currentLetter = '';;
+    let currentLetter = '';
+    let activeCategoryBtn = null;
     let sitesRowCloseTimer = null;
 
-    function clearSitesRow(immediate = false) {
+    function resetActiveCategory() {
+        document.querySelectorAll('.category-btn')
+            .forEach(btn => btn.classList.remove('active'));
+        activeCategoryBtn = null;
+    }
+
+    function removeClosingSnapshots() {
+        document.querySelectorAll('.sites-row-transition-closing')
+            .forEach(snapshot => snapshot.remove());
+    }
+
+    function createClosingSnapshot({ fixed = false } = {}) {
+        if (!sitesRow.classList.contains('is-open') || !sitesRow.innerHTML.trim()) return;
+
+        const snapshot = sitesRow.cloneNode(true);
+        snapshot.removeAttribute('id');
+        snapshot.classList.remove('hidden');
+        snapshot.classList.add('sites-row-transition-closing', 'is-open');
+        snapshot.style.maxHeight = `${sitesRow.scrollHeight}px`;
+        snapshot.style.opacity = '1';
+        snapshot.style.pointerEvents = 'none';
+
+        if (fixed) {
+            const rect = sitesRow.getBoundingClientRect();
+            snapshot.style.position = 'fixed';
+            snapshot.style.top = `${rect.top}px`;
+            snapshot.style.left = `${rect.left}px`;
+            snapshot.style.width = `${rect.width}px`;
+            snapshot.style.margin = '0';
+            snapshot.style.zIndex = '1200';
+            document.body.appendChild(snapshot);
+        } else {
+            sitesRow.after(snapshot);
+        }
+
+        requestAnimationFrame(() => {
+            snapshot.classList.remove('is-open');
+            snapshot.style.maxHeight = '0px';
+            snapshot.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+            snapshot.remove();
+        }, ROW_TRANSITION_MS);
+    }
+
+    function clearSitesRow({ immediate = false, onClosed = null } = {}) {
         if (sitesRowCloseTimer) {
             clearTimeout(sitesRowCloseTimer);
             sitesRowCloseTimer = null;
@@ -97,6 +146,8 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             sitesRow.classList.remove('is-open');
             sitesRow.classList.add('hidden');
             sitesRow.removeAttribute('style');
+            if (typeof onClosed === 'function') onClosed();
+            if (immediate) removeClosingSnapshots();
             return;
         }
 
@@ -105,6 +156,8 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             sitesRow.classList.add('hidden');
             sitesRow.innerHTML = '';
             sitesRow.removeAttribute('style');
+            removeClosingSnapshots();
+            if (typeof onClosed === 'function') onClosed();
             return;
         }
 
@@ -122,7 +175,8 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             sitesRow.innerHTML = '';
             sitesRow.removeAttribute('style');
             sitesRowCloseTimer = null;
-        }, 360);
+            if (typeof onClosed === 'function') onClosed();
+        }, ROW_TRANSITION_MS);
     }
 
     function getVisibleButtons() {
@@ -135,6 +189,22 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         if (width <= 600) return 2;
         if (width <= 1024) return 4;
         return 5;
+    }
+
+    function getButtonRowIndex(targetBtn) {
+        if (!targetBtn) return -1;
+
+        const visibleButtons = getVisibleButtons();
+        const buttonIndex = visibleButtons.indexOf(targetBtn);
+        if (buttonIndex < 0) return -1;
+
+        return Math.floor(buttonIndex / getColumnsCount());
+    }
+
+    function areButtonsInSameRow(firstBtn, secondBtn) {
+        const firstRow = getButtonRowIndex(firstBtn);
+        const secondRow = getButtonRowIndex(secondBtn);
+        return firstRow >= 0 && firstRow === secondRow;
     }
 
     function normalizeText(text = '') {
@@ -184,14 +254,14 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         });
     }
 
-    function renderSitesList(sites, title = '') {
+    function renderSitesList(sites, title = '', startCollapsed = false) {
         if (sitesRowCloseTimer) {
             clearTimeout(sitesRowCloseTimer);
             sitesRowCloseTimer = null;
         }
 
         const hadContent = Boolean(sitesRow.innerHTML.trim()) && sitesRow.classList.contains('is-open');
-        const startHeight = hadContent ? sitesRow.scrollHeight : 0;
+        const startHeight = startCollapsed ? 0 : (hadContent ? sitesRow.scrollHeight : 0);
 
         sitesRow.classList.remove('hidden');
         sitesRow.classList.add('is-open');
@@ -221,6 +291,29 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         });
     }
 
+    function openCategorySites(categoryBtn, startCollapsed = false) {
+        const category = categoryBtn.dataset.category;
+        const sites = sitesData[category];
+        if (!sites) return;
+
+        const visibleButtons = getVisibleButtons();
+        const index = visibleButtons.indexOf(categoryBtn);
+        const columns = getColumnsCount();
+
+        const rowEndIndex = Math.min(
+            Math.floor(index / columns) * columns + (columns - 1),
+            visibleButtons.length - 1
+        );
+
+        const insertAfter = visibleButtons[rowEndIndex];
+
+        renderSitesList(sites, '', startCollapsed);
+        insertAfter.after(sitesRow);
+
+        categoryBtn.classList.add('active');
+        activeCategoryBtn = categoryBtn;
+    }
+
     function applyNewBadgeToCategories() {
         document.querySelectorAll('.category-btn').forEach(categoryBtn => {
             const category = categoryBtn.dataset.category;
@@ -244,6 +337,7 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             document.querySelectorAll('.sort-btn, .letter-btn')
                 .forEach(btn => btn.classList.remove('active'));
 
+            resetActiveCategory();
             clearSitesRow();
 
             if (isActive) {
@@ -271,40 +365,38 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         const categoryBtn = event.target.closest('.category-btn');
         if (!categoryBtn) return;
 
-        const isActive = categoryBtn.classList.contains('active');
+        const isSameButton = activeCategoryBtn === categoryBtn;
 
-        document.querySelectorAll('.category-btn')
-            .forEach(btn => btn.classList.remove('active'));
-
-        if (isActive) {
+        if (isSameButton) {
+            resetActiveCategory();
             clearSitesRow();
             return;
         }
 
-        categoryBtn.classList.add('active');
+        resetActiveCategory();
 
-        const category = categoryBtn.dataset.category;
-        const sites = sitesData[category];
-        if (!sites) return;
+        const hasOpenSitesRow = sitesRow.classList.contains('is-open') && Boolean(sitesRow.innerHTML.trim());
 
-        const visibleButtons = getVisibleButtons();
-        const index = visibleButtons.indexOf(categoryBtn);
-        const columns = getColumnsCount();
+        if (hasOpenSitesRow) {
+            const shouldCloseThenOpen = areButtonsInSameRow(activeCategoryBtn, categoryBtn);
 
-        const rowEndIndex = Math.min(
-            Math.floor(index / columns) * columns + (columns - 1),
-            visibleButtons.length - 1
-        )
+            if (shouldCloseThenOpen) {
+                clearSitesRow({ onClosed: () => openCategorySites(categoryBtn, true) });
+                return;
+            }
 
-        const insertAfter = visibleButtons[rowEndIndex];
+            createClosingSnapshot({ fixed: true });
+            openCategorySites(categoryBtn, true);
+            return;
+        }
 
-        renderSitesList(sites);
-        insertAfter.after(sitesRow);
+        openCategorySites(categoryBtn);
     });
 
     searchInput.addEventListener('input', event => {
         const query = normalizeText(event.target.value);
 
+        resetActiveCategory();
         clearSitesRow();
 
         if (!query) {
