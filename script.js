@@ -31,6 +31,41 @@ if (showEmailBtn && emailField) {
     });
 }
 
+
+
+/* =========================
+   TELA DE ATALHOS (ACCORDION)
+========================= */
+const shortcutToggles = document.querySelectorAll('.shortcut-software-toggle');
+
+if (shortcutToggles.length) {
+    shortcutToggles.forEach(toggleBtn => {
+        toggleBtn.addEventListener('click', () => {
+            const softwareItem = toggleBtn.closest('.shortcut-software-item');
+            if (!softwareItem) return;
+
+            const willOpen = !softwareItem.classList.contains('is-open');
+
+            shortcutToggles.forEach(otherBtn => {
+                const otherItem = otherBtn.closest('.shortcut-software-item');
+                if (!otherItem) return;
+
+                otherItem.classList.remove('is-open');
+                otherItem.classList.add('is-collapsed');
+                otherBtn.setAttribute('aria-expanded', 'false');
+                otherBtn.classList.remove('active');
+            });
+
+            if (willOpen) {
+                softwareItem.classList.remove('is-collapsed');
+                softwareItem.classList.add('is-open');
+                toggleBtn.setAttribute('aria-expanded', 'true');
+                toggleBtn.classList.add('active');
+            }
+        });
+    });
+}
+
 /* =========================
    HOME LOGIC
 ========================= */

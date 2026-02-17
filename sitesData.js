@@ -39,6 +39,12 @@ const sitesData = {
             url: 'https://coddy.tech/',
             description: '<p>Coddy.tech é uma plataforma online para aprender programação de maneira prática e gamificada, tipo aulas interativas, desafios curtos pra você pegar o jeito de várias linguagens (Python, JavaScript, C++, HTML, etc.) sem teoria chata.</p> O conteúdo é bom pra quem está <strong>começando</strong> ou quer praticar, tem coisa gratuita mas algumas partes são pagas, e a experiência lembra apps tipo Duolingo de código.',
         },
+        {
+            name: 'Exercism',
+            url: 'https://exercism.org/',
+            description: '<p>Exercism é uma plataforma gratuita da prática de programação com centenas de exercícios em dezenas de linguagens e feedback de mentores reais.</p><strong>REQUER CONTA</strong>',
+            isNew:true
+        },
     ],
 
     gaming: [
@@ -187,6 +193,11 @@ const sitesData = {
             name: 'Contexto',
             url: 'https://contexto.me/pt/',
             description: 'Contexto é um jogo de adivinhação de palavras, você vai precisar descobrir uma palavra secreta dando palpites e pistas de "quente ou frio"',
+        },
+        {
+            name: 'Conexo',
+            url: 'https://conexo.ws',
+            description: 'Conexo é um jogo de palavras onde você precisa formar 4 grupos de 4 palavras conectadas por um tema secreto. funciona como um desafio diário que testa seu raciocínio.',
             isNew:true
         },
     ],

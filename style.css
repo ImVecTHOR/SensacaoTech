@@ -43,8 +43,8 @@ body::before {
 }
 
 .header.scrolled {
-    backdrop-filter: blur(25px);
-    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(20px);
+    background: rgba(26, 26, 26, 0.171);
     box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
 }
 
@@ -957,16 +957,7 @@ body::before {
 }
 
 .shortcut-category {
-    background: rgba(0, 255, 255, 0.06);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 14px;
-    padding: 16px;
-    margin-bottom: 14px;
-}
-
-.shortcut-category h3 {
-    color: #ffffff;
-    margin-bottom: 8px;
+    padding: 0 16px 16px;
 }
 
 .shortcut-category h3 {
@@ -977,6 +968,7 @@ body::before {
 .shortcut-list li {
     color: #d8d8d8;
     line-height: 1.5;
+    position: relative;
 }
 
 kbd {
@@ -986,4 +978,86 @@ kbd {
     padding: 2px 6px;
     font-size: 0.82rem;
     color: #fff;
+}
+
+.software-shortcuts {
+    display: grid;
+    gap: 12px;
+}
+
+.shortcut-software-item {
+    display: grid;
+    background: rgba(0, 255, 255, 0.06);
+    border: 1px solid rgba(0, 255, 255, 0.22);
+    border-radius: 14px;
+    overflow: hidden;
+    max-height: 56px;
+    transition: max-height 0.35s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.shortcut-software-item.is-open {
+    max-height: 420px;
+    border-color: #00ffff;
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.28);
+    background: rgba(0, 255, 255, 0.12);
+}
+
+.shortcut-software-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 17px 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.shortcut-software-toggle:hover,
+.shortcut-software-toggle.active {
+    background: rgba(0, 255, 255, 0.08);
+}
+
+.shortcut-software-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.shortcut-chevron {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.shortcut-software-toggle.active .shortcut-chevron {
+    transform: rotate(180deg);
+}
+
+
+.shortcut-icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.shortcut-category .shortcut-list li {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.shortcut-software-item.is-open .shortcut-category .shortcut-list li {
+    animation: shortcutCascade 0.35s ease forwards;
+    animation-delay: calc(var(--item-index) * 70ms);
+}
+
+@keyframes shortcutCascade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
