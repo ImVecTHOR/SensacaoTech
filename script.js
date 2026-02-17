@@ -85,11 +85,44 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
     let currentSort = '';
     let currentLetter = '';;
+    let sitesRowCloseTimer = null;
 
-    function clearSitesRow() {
-        sitesRow.classList.add('hidden');
-        sitesRow.innerHTML = '';
-        sitesRow.removeAttribute('style');
+    function clearSitesRow(immediate = false) {
+        if (sitesRowCloseTimer) {
+            clearTimeout(sitesRowCloseTimer);
+            sitesRowCloseTimer = null;
+        }
+
+        if (!sitesRow.innerHTML.trim()) {
+            sitesRow.classList.remove('is-open');
+            sitesRow.classList.add('hidden');
+            sitesRow.removeAttribute('style');
+            return;
+        }
+
+        if (immediate) {
+            sitesRow.classList.remove('is-open');
+            sitesRow.classList.add('hidden');
+            sitesRow.innerHTML = '';
+            sitesRow.removeAttribute('style');
+            return;
+        }
+
+        sitesRow.style.maxHeight = `${sitesRow.scrollHeight}px`;
+        sitesRow.style.opacity = '1';
+
+        requestAnimationFrame(() => {
+            sitesRow.classList.remove('is-open');
+            sitesRow.style.maxHeight = '0px';
+            sitesRow.style.opacity = '0';
+        });
+
+        sitesRowCloseTimer = setTimeout(() => {
+            sitesRow.classList.add('hidden');
+            sitesRow.innerHTML = '';
+            sitesRow.removeAttribute('style');
+            sitesRowCloseTimer = null;
+        }, 360);
     }
 
     function getVisibleButtons() {
@@ -152,6 +185,19 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
     }
 
     function renderSitesList(sites, title = '') {
+        if (sitesRowCloseTimer) {
+            clearTimeout(sitesRowCloseTimer);
+            sitesRowCloseTimer = null;
+        }
+
+        const hadContent = Boolean(sitesRow.innerHTML.trim()) && sitesRow.classList.contains('is-open');
+        const startHeight = hadContent ? sitesRow.scrollHeight : 0;
+
+        sitesRow.classList.remove('hidden');
+        sitesRow.classList.add('is-open');
+        sitesRow.style.opacity = '1';
+        sitesRow.style.maxHeight = `${startHeight}px`;
+
         sitesRow.innerHTML = `
             ${title ? `<p class="search-results-title">${title}</p>` : ''}
             <div class="sites-list">
@@ -167,7 +213,12 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             </div>
         `;
 
-        sitesRow.classList.remove('hidden');
+        const endHeight = sitesRow.scrollHeight;
+
+        requestAnimationFrame(() => {
+            sitesRow.style.maxHeight = `${endHeight}px`;
+            sitesRow.style.opacity = '1';
+        });
     }
 
     function applyNewBadgeToCategories() {
@@ -185,19 +236,6 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             }
         });
     }
-
-        function animateButtonsCascade(visibleButtons, rowEndIndex) {
-        const affectedButtons = visibleButtons.slice(rowEndIndex + 1);
-        if (!affectedButtons.length) return;
-
-        affectedButtons.forEach((button, index) => {
-            button.classList.remove('category-btn-cascade');
-            button.style.setProperty('--cascade-index', String(index));
-            void button.offsetWidth;
-            button.classList.add('category-btn-cascade');
-        });
-    }
-
 
     document.querySelectorAll('.sort-btn, .letter-btn').forEach(filterBtn => {
         filterBtn.addEventListener('click', () => {
@@ -262,7 +300,6 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
         renderSitesList(sites);
         insertAfter.after(sitesRow);
-        animateButtonsCascade(visibleButtons, rowEndIndex);
     });
 
     searchInput.addEventListener('input', event => {
