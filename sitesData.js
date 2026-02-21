@@ -31,6 +31,12 @@ const sitesData = {
             url: 'https://moodle.ifrs.edu.br/',
             description: 'O Moodle do IFRS é um lugar cheio de cursos gratuitos e práticos, com foco em aprender algo novo mesmo devendo experiência prévia, a maioria é básica ou intermediária, dá certificado e pode ser feita no seu ritmo.',
         },
+        {
+            name: 'Class Central',
+            url: 'https://www.classcentral.com/',
+            description: '<p>Class Central funciona com um agregador e motor de busca de cusos online, contendo materiais voltados a educação à distância de diversas plataformas e universidades do mundo todo.</p><strong>EM INGLÊS</strong>',
+            isNew:true
+        },
     ],
 
     cursos_programacao: [
@@ -43,6 +49,11 @@ const sitesData = {
             name: 'Exercism',
             url: 'https://exercism.org/',
             description: '<p>Exercism é uma plataforma gratuita da prática de programação com centenas de exercícios em dezenas de linguagens e feedback de mentores reais.</p><strong>REQUER CONTA</strong>',
+        },
+        {
+            name: 'FreeCodeCamp',
+            url: 'https://www.freecodecamp.org/',
+            description: 'FreeCodeCamp é uma organização sem fins lucrativos e plataforma educativa voltada a quem quer aprender programação e desenvolvimento de software gratuitamente. Desde fundamentos de HTML, CSS e JS até temas mais avançados como back-end, APIs e ciência de dados, tudo de forma auto-guiada e sem custo.',
             isNew:true
         },
     ],
@@ -80,7 +91,6 @@ const sitesData = {
             name: 'Devicon.dev',
             url: 'https://devicon.dev/',
             description: 'Devicon é uma biblioteca de ícones de tecnologia com logos de linguagens, frameworks, ferramentas e plataformas prontos para usar em sites ou projetos dev sem esforço :)',
-            isNew:true
         },
     ],
 
@@ -202,13 +212,11 @@ const sitesData = {
             name: 'Conexo',
             url: 'https://conexo.ws',
             description: 'Conexo é um jogo de palavras onde você precisa formar 4 grupos de 4 palavras conectadas por um tema secreto. funciona como um desafio diário que testa seu raciocínio.',
-            isNew:true
         },
         {
             name: 'Rhythm Plus',
             url: 'https://rhythm-plus.com/',
             description: 'Esse aqui é um jogo de ritmo multiplayer onde você pode jogar e criar músicas/mapas com a comunidade. As notas descem na tela no ritmo da música e você tem que apertar as teclas certas no momento certo.',
-            isNew:true
         },
     ],
     idiomas: [
@@ -235,6 +243,30 @@ const sitesData = {
             name: 'Sólides',
             url: 'https://vagas.solides.com.br/',
             description: '<p>Sólides Vagas é um portal de vagas da Sólides, aqui você encontra posições de trabalho anunciadas por empresas parceiras, possui oportunidades de emprego em diversas áreas e cidades do Brasil.</p> <p>Tem um certo foco em <strong>pequenas e médias empresas</strong></p> <br> <strong>REQUER CONTA</strong>',
+        },
+    ],
+    automotivo: [
+        {
+            name:'Auto Catalog Archive',
+            url:'https://autocatalogarchive.com/',
+            description:'<p>Auto Catalog Archive é um site focado em catálogos de automóveis, o site reúne mais de 30 mil catálogos para visualização e download, os catálogos são originais usados pelas próprias montadoras (detalhes técnicos, estilos, equipamentos, versões etc.).</p><strong>EM INGLÊNS</strong>',
+            isNew:true
+        },
+    ],
+    quimica:[
+        {
+            name:'AtomAnimation',
+            url:'https://atomanimation.com/',
+            description:'<p>Atom Animation é um projeto online que exibe animações interativas de estruturas atômicas e fornece uma tabela periódica diretamente no navegador. Na página principal você vê um modelo de átomo tendo a possibilidade de ajustar Prótons, elétrons e nêutrons.</p><strong>EM INGLÊNS</strong>',
+            isNew:true
+        },
+    ],
+    outros: [
+        {
+            name:'MoeWalls',
+            url:'https://moewalls.com/',
+            description:'<p>Esse site serve basicamente como um repositório de wallpapers, com foco em imagens animadas e também papéis de parede estáticos. Aqui existem bastantes wallpapers de anime, jogos e filmes.</p>',
+            isNew:true
         },
     ],
 };

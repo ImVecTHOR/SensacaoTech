@@ -109,6 +109,21 @@ body::before {
     text-shadow: 0 0 20px #00ffff;
 }
 
+.texto-link {
+    text-decoration: none;
+    color: #00ffff;
+}
+
+.texto-link:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+.titulo-link{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 .main {
     width: 100%;
     max-width: 1000px;
