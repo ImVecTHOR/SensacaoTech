@@ -1,11 +1,9 @@
-// :[
 //     {
 //         name: '',
 //         url: '',
 //         description: '',
 //         isNew:true
-//     }
-//],
+//     },
 
 // <br><strong>EM INGLÊS</strong>
 // <strong> REQUER ASSINATURA</strong>
@@ -22,6 +20,12 @@ const sitesData = {
             name: 'Zoomquilt',
             url: 'https://zoomquilt.org/',
             description: '<p>zoomquilt.org é um projeto de arte digital interativa que exibe uma imagem que parece ter um zoom infinito em um cenário surreal, você fica entrando cada vez mais fundo em ilustrações conectadas sem parar. É hipnótico de olhar e ótimo pra ficar viajando na arte, o projeto possui uma sequência que pode ser acessada por esse site.</p> <p>(É graças a esse site que eu criei o interesse em descobrir e pesquisar por sites interessantes e desconhecidos na internet, basicamente é graças a ele que esse site aqui existe)</p>',
+        },
+        {
+            name: 'Adrift',
+            url: 'https://adrift.site/',
+            description: '<p>Esse é um site com uma proposta na minha opnião muito interessante, servir como um espaço virtual para você &quot;soltar&quot; pensamentos e dúvidas anônimas em forma de pequenos barquinhos de papel que navegam pela página, visitantes podem ver e clicar nesses barquinhos para ler mensagens anônimas deixadas por outras pessoas.</p> <strong>EM INGLÊS, use google tradutor na página</strong>',
+            isNew: true
         }
     ],
 
@@ -35,11 +39,10 @@ const sitesData = {
             name: 'Class Central',
             url: 'https://www.classcentral.com/',
             description: '<p>Class Central funciona com um agregador e motor de busca de cusos online, contendo materiais voltados a educação à distância de diversas plataformas e universidades do mundo todo.</p><strong>EM INGLÊS</strong>',
-            isNew:true
         },
     ],
 
-    cursos_programacao: [
+    aprendizado_programacao: [
         {
             name: 'Coddy Tech',
             url: 'https://coddy.tech/',
@@ -54,6 +57,11 @@ const sitesData = {
             name: 'FreeCodeCamp',
             url: 'https://www.freecodecamp.org/',
             description: 'FreeCodeCamp é uma organização sem fins lucrativos e plataforma educativa voltada a quem quer aprender programação e desenvolvimento de software gratuitamente. Desde fundamentos de HTML, CSS e JS até temas mais avançados como back-end, APIs e ciência de dados, tudo de forma auto-guiada e sem custo.',
+        },
+        {
+            name: 'RoadMap.sh',
+            url: 'https://roadmap.sh/',
+            description: '<p>Roadmap.sh é uma plataforma de aprendizado e orientação para desenvolvedores e pessoas na área de tecnologia, organizada em roadmaps estruturados em habilidades e tópicos que você pode seguir para aprender alguma tecnologia ou carreira específica, com links e recursos para cada etapa.</p> <strong>EM INGLÊS</strong>',
             isNew:true
         },
     ],
@@ -76,7 +84,7 @@ const sitesData = {
         },
     ],
 
-    programacao: [
+    programacao_ferramentas: [
         {
             name: 'Reactbits',
             url: 'https://reactbits.dev/',
@@ -92,6 +100,18 @@ const sitesData = {
             url: 'https://devicon.dev/',
             description: 'Devicon é uma biblioteca de ícones de tecnologia com logos de linguagens, frameworks, ferramentas e plataformas prontos para usar em sites ou projetos dev sem esforço :)',
         },
+        {
+            name: 'Ray.so',
+            url: 'https://ray.so/',
+            description: '<p>Ray.so é uma ferramenta direta para transformar trechos de código em imagens bem apresentadas, pensada especialmente para desenvolvedores que querem mostrar ou compartilhar código com estilo em blogs, redes sociais, portfólios ou documentação.</p><br> <p>No <strong>canto superior esquerdo</strong> existe um botão (Code Images), ao clicar nele você encontra outras ferramentas úteis</p>',
+            isNew: true
+        },
+        {
+            name: 'CSS Grid Generator',
+            url: 'https://cssgridgenerator.io/',
+            description: 'Nesse site você vai encontrar uma ferramenta prática para criar layouts com CSS grid sem ter que escrever todo o código manualmente. Ela fornece uma interface onde você define a estrutura e recebe o CSS pronto para copiar e colar no seu projeto.',
+            isNew:true
+        },
     ],
 
     informativo: [
@@ -104,6 +124,18 @@ const sitesData = {
             name: 'Animagraffs',
             url: 'https://animagraffs.com/',
             description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletânea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. <br><strong>EM INGLÊS</strong>',
+        },
+        {
+            name: 'Archive.org',
+            url: 'https://archive.org/',
+            description: 'Archive.org é uma biblioteca digital sem fins lucrativos, aqui rola uma preservação de versões arquivadas de páginas da web, áudios, livros, vídeos, softwares e muitas outras coisas para acesso público. É um dos maiores repositórios históricos de conteúdo digital já criados.',
+            isNew: true
+        },
+        {
+            name: 'Ifixit',
+            url: 'https://pt.ifixit.com/',
+            description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
+            isNew:true
         },
     ],
 
@@ -162,6 +194,18 @@ const sitesData = {
             url: 'https://pt.vectorizer.ai/',
             description: 'Ferramenta online que transforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
         },
+        {
+            name: 'River Max Bittker',
+            url: 'https://river.maxbittker.com/',
+            description: '<p>Esse site é um projeto web experimental, funciona como uma interface de exploração visual. A ideia por trás é permitir que você navegue rapidamente por conjuntos de iamgens conectadas por similaridade usando machine learning para encontrar padrões.</p> <p>Creio que esse site ajuda para encontrar inspirações para quem curte design.</p>',
+            isNew:true
+        },
+        {
+            name: 'PromptHero',
+            url: 'https://prompthero.com/',
+            description: 'É uma plataforma focada em prompt engineering, ou seja, um repositório e motor de busca de prompts usados para gerar conteúdo com modelos de IA.',
+            isNew:true
+        },
     ],
     gastronomia: [
         {
@@ -170,7 +214,7 @@ const sitesData = {
             description: '<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
         },
     ],
-    utilitarios_geral: [
+    utilitarios_ferramentas: [
         {
             name: 'SEO Studio',
             url: 'https://seostudio.tools/pt',
@@ -180,6 +224,12 @@ const sitesData = {
             name: 'Sweezy-Cursors',
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
+        },
+        {
+            name: 'Scanmalware',
+            url: 'https://scanmalware.com/',
+            description: '<p>Scanmalware é um serviço online que se apresenta como uma ferramenta gratuita para verificar URLs e sites em busca de malware ou outras possíveis ameaças de segurança</p> <p>Por opnião própria, o serviço é legal e já te bota uma noção sobre aquele link suspeito, mesmo assim, não fique 100% na onda desses sites</p>',
+            isNew: true
         },
     ],
     games_navegador: [
@@ -218,6 +268,13 @@ const sitesData = {
             url: 'https://rhythm-plus.com/',
             description: 'Esse aqui é um jogo de ritmo multiplayer onde você pode jogar e criar músicas/mapas com a comunidade. As notas descem na tela no ritmo da música e você tem que apertar as teclas certas no momento certo.',
         },
+        {
+            name: 'Color Method',
+            url: 'https://color.method.ac/',
+            description: 'Esse aqui é um pequeno jogo interativo voltado a percepção de cores, o site te coloca numa espécie de desafio onde você precisa acertar a cor de força precisa (ou quase), explorando conceitos como matiz, saturação e cores complementares.',
+            isNew: true
+        },
+
     ],
     idiomas: [
         {
@@ -247,26 +304,55 @@ const sitesData = {
     ],
     automotivo: [
         {
-            name:'Auto Catalog Archive',
-            url:'https://autocatalogarchive.com/',
-            description:'<p>Auto Catalog Archive é um site focado em catálogos de automóveis, o site reúne mais de 30 mil catálogos para visualização e download, os catálogos são originais usados pelas próprias montadoras (detalhes técnicos, estilos, equipamentos, versões etc.).</p><strong>EM INGLÊNS</strong>',
+            name: 'Auto Catalog Archive',
+            url: 'https://autocatalogarchive.com/',
+            description: '<p>Auto Catalog Archive é um site focado em catálogos de automóveis, o site reúne mais de 30 mil catálogos para visualização e download, os catálogos são originais usados pelas próprias montadoras (detalhes técnicos, estilos, equipamentos, versões etc.).</p><strong>EM INGLÊNS</strong>',
+        },
+        {
+            name: 'Start My Car',
+            url: 'https://www.startmycar.com/',
+            description: '<p>É um site comunitário voltado a carros e veículos onde os usuários podem perguntar e compartilhar problemas, experiências e soluções relacionadas a manutenção, defeitos ou dúvidas técnicas de automóveis.</p> <strong>EM INGLÊS</strong>',
             isNew:true
         },
     ],
-    quimica:[
+    quimica: [
         {
-            name:'AtomAnimation',
-            url:'https://atomanimation.com/',
-            description:'<p>Atom Animation é um projeto online que exibe animações interativas de estruturas atômicas e fornece uma tabela periódica diretamente no navegador. Na página principal você vê um modelo de átomo tendo a possibilidade de ajustar Prótons, elétrons e nêutrons.</p><strong>EM INGLÊNS</strong>',
-            isNew:true
+            name: 'AtomAnimation',
+            url: 'https://atomanimation.com/',
+            description: '<p>Atom Animation é um projeto online que exibe animações interativas de estruturas atômicas e fornece uma tabela periódica diretamente no navegador. Na página principal você vê um modelo de átomo tendo a possibilidade de ajustar Prótons, elétrons e nêutrons.</p><strong>EM INGLÊNS</strong>',
+        },
+    ],
+    zoologia: [
+        {
+            name: 'Explore',
+            url: 'https://explore.org/livecams',
+            description: '<p>Explore.org - Live Cams (tratando da seção &quot;Livecams&quot; do explore.org) é um canal de transmissão ao vivo de câmeras instaladas em ambiente naturais e habitats de animais ao redor do mundo. Ele faz parte da iniciativa maior do site Explore.org, uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p> <strong>EM INGLÊS</strong>',
+            isNew: true
         },
     ],
     outros: [
         {
-            name:'MoeWalls',
-            url:'https://moewalls.com/',
-            description:'<p>Esse site serve basicamente como um repositório de wallpapers, com foco em imagens animadas e também papéis de parede estáticos. Aqui existem bastantes wallpapers de anime, jogos e filmes.</p>',
-            isNew:true
+            name: 'MoeWalls',
+            url: 'https://moewalls.com/',
+            description: '<p>Esse site serve basicamente como um repositório de wallpapers, com foco em imagens animadas e também papéis de parede estáticos. Aqui existem bastantes wallpapers de anime, jogos e filmes.</p>',
+        },
+        {
+            name: 'Lytube',
+            url: 'https://www.lytube.com/?v=QNBO7wIU3yI',
+            description: 'Lytube é site de terceiros de reprodução/vizualização de vídeos baseados em links do youtube, nele você consegue colocar um parâmetro de uma URL de alguma música no Youtube e aproveitar ele com sua letra original, funciona assim, vá em alguma música no youtube e procure no link dele o parâmetro depois do &quot;watch?v=&quot; e antes do &quot;&list=&quot;, copie e cole, dê play e aproveite a música, evite pegar músicas com videoclipe ou lyrics de canais não oficiais, caso não consiga dar play na música, atualize a página',
+            isNew: true
+        },
+        {
+            name: 'CubisHeart',
+            url: 'https://www.cubistheart.com/',
+            description: 'Esse é um projeto artístico, cada página do site mostra um relógio diferente para cada dia, com um visual baseado em imagens coletadas da internet, é basicamente isso, vale a pena acessar o site, tenho certeza que você nunca viu tantas formas criativas de ver que horas são.',
+            isNew: true
+        },
+        {
+            name: 'Pointer Pointer',
+            url: 'https://pointerpointer.com/',
+            description: 'É aquele tipo de site que cura seu tédio, basicamente, ao deixar o seu cursor do mouse em algum lugar da tela, você vai se deparar com uma foto de alguem apontando para seu cursor.',
+            isNew: true
         },
     ],
 };
