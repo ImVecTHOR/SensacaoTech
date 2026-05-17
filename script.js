@@ -72,13 +72,15 @@ if (shortcutToggles.length) {
 const buttonsGrid = document.getElementById('buttonsGrid');
 const sitesRow = document.getElementById('sitesRow');
 const searchInput = document.querySelector('.search-input');
+const searchForm = document.querySelector('.search-container');
+const searchDropdown = document.getElementById('searchDropdown');
 
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
 const modalLink = document.getElementById('modalLink');
 
-if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') {
+if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && typeof sitesData !== 'undefined') {
     const originalCategoryOrder = [
         ...document.querySelectorAll('.category-btn')
     ];
@@ -192,7 +194,8 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
     function getColumnsCount() {
         const width = window.innerWidth;
-        if (width <= 600) return 2;
+        if (width <= 480) return 2;
+        if (width <= 768) return 3;
         if (width <= 1024) return 4;
         return 5;
     }
@@ -225,6 +228,34 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         return text.replace(/<[^>]*>/g, ' ');
     }
 
+    function getCategoryLabel(categoryBtn) {
+        return [...categoryBtn.childNodes]
+            .filter(node => node.nodeType === Node.TEXT_NODE || node.nodeName === 'BR')
+            .map(node => node.nodeName === 'BR' ? ' ' : node.textContent)
+            .join('')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function createSiteButton(site, extraClass = '') {
+        const siteBtn = document.createElement('button');
+        siteBtn.className = `site-btn${extraClass ? ` ${extraClass}` : ''}`;
+        siteBtn.type = 'button';
+        siteBtn.dataset.name = site.name;
+        siteBtn.dataset.description = site.description;
+        siteBtn.dataset.url = site.url;
+        siteBtn.textContent = site.name;
+
+        if (site.isNew) {
+            const badge = document.createElement('span');
+            badge.className = 'badge-new';
+            badge.textContent = 'NOVO';
+            siteBtn.appendChild(badge);
+        }
+
+        return siteBtn;
+    }
+
     function restoreOriginalOrder() {
         originalCategoryOrder.forEach(categoryBtn => {
             categoryBtn.style.display = 'flex';
@@ -238,15 +269,15 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
         if (currentLetter) {
             filtered = filtered.filter(categoryBtn =>
-                normalizeText(categoryBtn.textContent).startsWith(currentLetter)
+                normalizeText(getCategoryLabel(categoryBtn)).startsWith(currentLetter)
             );
         }
 
         if (currentSort) {
             filtered.sort((a, b) =>
                 currentSort === 'az'
-                    ? a.textContent.localeCompare(b.textContent)
-                    : b.textContent.localeCompare(a.textContent)
+                    ? getCategoryLabel(a).localeCompare(getCategoryLabel(b))
+                    : getCategoryLabel(b).localeCompare(getCategoryLabel(a))
             );
         }
 
@@ -278,21 +309,19 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         sitesRow.classList.add('is-open');
         sitesRow.style.opacity = '1';
         sitesRow.style.maxHeight = `${startHeight}px`;
+        sitesRow.innerHTML = '';
 
-        sitesRow.innerHTML = `
-            ${title ? `<p class="search-results-title">${title}</p>` : ''}
-            <div class="sites-list">
-                ${sites.map(site => `
-                    <button class="site-btn"
-                        data-name="${site.name}"
-                        data-description="${site.description}"
-                        data-url="${site.url}">
-                        ${site.name}
-                        ${site.isNew ? '<span class="badge-new">NOVO</span>' : ''}
-                    </button>
-                                `).join('')}
-            </div>
-        `;
+        if (title) {
+            const resultsTitle = document.createElement('p');
+            resultsTitle.className = 'search-results-title';
+            resultsTitle.textContent = title;
+            sitesRow.appendChild(resultsTitle);
+        }
+
+        const sitesList = document.createElement('div');
+        sitesList.className = 'sites-list';
+        sites.forEach(site => sitesList.appendChild(createSiteButton(site)));
+        sitesRow.appendChild(sitesList);
 
         const endHeight = sitesRow.scrollHeight;
 
@@ -325,8 +354,8 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
 
         const insertAfter = visibleButtons[rowEndIndex];
 
-        renderSitesList(sites, '', startCollapsed);
         insertAfter.after(sitesRow);
+        renderSitesList(sites, '', startCollapsed);
 
         categoryBtn.classList.add('active');
         activeCategoryBtn = categoryBtn;
@@ -348,6 +377,89 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         });
     }
 
+    function closeSearchDropdown() {
+        searchDropdown.classList.add('hidden');
+        searchDropdown.classList.remove('is-open');
+        searchDropdown.innerHTML = '';
+        searchInput.setAttribute('aria-expanded', 'false');
+    }
+
+    function getSearchMatches(query) {
+        const categoryButtons = [...document.querySelectorAll('.category-btn')];
+        const categoryLabels = new Map(
+            categoryButtons.map(categoryBtn => [
+                categoryBtn.dataset.category,
+                getCategoryLabel(categoryBtn)
+            ])
+        );
+
+        return Object.entries(sitesData)
+            .flatMap(([category, sites]) => {
+                const categoryLabel = categoryLabels.get(category) || category;
+                const categoryText = normalizeText(categoryLabel);
+
+                return sites.map(site => {
+                    const siteName = normalizeText(site.name);
+                    const description = normalizeText(stripHtml(site.description));
+                    let score = -1;
+
+                    if (siteName === query) score = 0;
+                    else if (siteName.startsWith(query)) score = 1;
+                    else if (siteName.includes(query)) score = 2;
+                    else if (categoryText.includes(query)) score = 3;
+                    else if (description.includes(query)) score = 4;
+
+                    return score >= 0
+                        ? { ...site, categoryLabel, score }
+                        : null;
+                });
+            })
+            .filter(Boolean)
+            .sort((a, b) => a.score - b.score || a.name.localeCompare(b.name));
+    }
+
+    function renderSearchDropdown(matches, rawQuery) {
+        searchDropdown.innerHTML = '';
+        searchDropdown.classList.remove('hidden');
+        searchDropdown.classList.add('is-open');
+        searchInput.setAttribute('aria-expanded', 'true');
+
+        const header = document.createElement('div');
+        header.className = 'search-dropdown-header';
+        header.textContent = matches.length
+            ? `${matches.length} resultado(s) para "${rawQuery}"`
+            : `Nenhum resultado para "${rawQuery}"`;
+        searchDropdown.appendChild(header);
+
+        if (!matches.length) {
+            const empty = document.createElement('p');
+            empty.className = 'search-empty';
+            empty.textContent = 'Tente buscar pelo nome do site, categoria ou uma palavra da descrição.';
+            searchDropdown.appendChild(empty);
+            return;
+        }
+
+        const resultsList = document.createElement('div');
+        resultsList.className = 'search-results-list';
+
+        matches.forEach(site => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+
+            const siteBtn = createSiteButton(site, 'search-result-btn');
+
+            const categoryTag = document.createElement('span');
+            categoryTag.className = 'search-result-category';
+            categoryTag.textContent = site.categoryLabel;
+            siteBtn.appendChild(categoryTag);
+
+            resultItem.appendChild(siteBtn);
+            resultsList.appendChild(resultItem);
+        });
+
+        searchDropdown.appendChild(resultsList);
+    }
+
     document.querySelectorAll('.sort-btn, .letter-btn').forEach(filterBtn => {
         filterBtn.addEventListener('click', () => {
             const isActive = filterBtn.classList.contains('active');
@@ -355,6 +467,7 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             document.querySelectorAll('.sort-btn, .letter-btn')
                 .forEach(btn => btn.classList.remove('active'));
 
+            closeSearchDropdown();
             resetActiveCategory();
             clearSitesRow();
 
@@ -383,7 +496,10 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         const categoryBtn = event.target.closest('.category-btn');
         if (!categoryBtn) return;
 
-        const isSameButton = activeCategoryBtn === categoryBtn;
+        const previousActiveCategoryBtn = activeCategoryBtn;
+        const isSameButton = previousActiveCategoryBtn === categoryBtn;
+
+        closeSearchDropdown();
 
         if (isSameButton) {
             resetActiveCategory();
@@ -391,18 +507,17 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
             return;
         }
 
+        const hasOpenSitesRow = sitesRow.classList.contains('is-open') && Boolean(sitesRow.innerHTML.trim());
+        const shouldCloseThenOpen = hasOpenSitesRow && areButtonsInSameRow(previousActiveCategoryBtn, categoryBtn);
+
         resetActiveCategory();
 
-        const hasOpenSitesRow = sitesRow.classList.contains('is-open') && Boolean(sitesRow.innerHTML.trim());
+        if (shouldCloseThenOpen) {
+            clearSitesRow({ onClosed: () => openCategorySites(categoryBtn, true) });
+            return;
+        }
 
         if (hasOpenSitesRow) {
-            const shouldCloseThenOpen = areButtonsInSameRow(activeCategoryBtn, categoryBtn);
-
-            if (shouldCloseThenOpen) {
-                clearSitesRow({ onClosed: () => openCategorySites(categoryBtn, true) });
-                return;
-            }
-
             createClosingSnapshot({ fixed: true });
             openCategorySites(categoryBtn, true);
             return;
@@ -411,48 +526,32 @@ if (buttonsGrid && sitesRow && searchInput && typeof sitesData !== 'undefined') 
         openCategorySites(categoryBtn);
     });
 
-    searchInput.addEventListener('input', event => {
-        const query = normalizeText(event.target.value);
+    searchForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const rawQuery = searchInput.value.trim();
+        const query = normalizeText(rawQuery);
 
         resetActiveCategory();
         clearSitesRow();
 
         if (!query) {
-            if (currentSort || currentLetter) applyFilter();
-            else restoreOriginalOrder();
+            closeSearchDropdown();
+            searchInput.focus();
             return;
         }
 
-        const categoryButtons = [...document.querySelectorAll('.category-btn')];
-        const matchedCategories = new Set(
-            categoryButtons
-                .filter(btn => normalizeText(btn.textContent).includes(query))
-                .map(btn => btn.dataset.category)
-        );
+        renderSearchDropdown(getSearchMatches(query), rawQuery);
+    });
 
-        const siteMatches = [];
+    searchInput.addEventListener('input', closeSearchDropdown);
 
-        Object.entries(sitesData).forEach(([category, sites]) => {
-            sites.forEach(site => {
-                const inName = normalizeText(site.name).includes(query);
-                const inDescription = normalizeText(stripHtml(site.description)).includes(query);
+    document.addEventListener('click', event => {
+        const clickedInsideSearch = event.target.closest('.search-container');
+        const clickedSearchResult = event.target.closest('.search-result-btn');
 
-                if (inName || inDescription) {
-                    siteMatches.push(site);
-                    matchedCategories.add(category);
-                }
-            });
-        });
-
-        categoryButtons.forEach(categoryBtn => {
-            categoryBtn.style.display = matchedCategories.has(categoryBtn.dataset.category)
-                ? 'flex'
-                : 'none';
-        });
-
-        if (siteMatches.length) {
-            renderSitesList(siteMatches, `Resultados da busca (${siteMatches.length})`);
-            buttonsGrid.after(sitesRow);
+        if (!clickedInsideSearch || clickedSearchResult) {
+            closeSearchDropdown();
         }
     });
 

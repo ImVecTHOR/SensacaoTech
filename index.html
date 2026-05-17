@@ -37,7 +37,8 @@
         <section id="homePage" class="page active">
 
             <p class="texto-padrao">Um "hub" de coisas que encontro pela internet</p>
-            <p class="texto-padrao">Recomendo usar o <a class="texto-link" href="https://brave.com/pt-br/" target="_blank">Brave</a> como navegador, com ele você deixa de ver propagandas</p>
+            <p class="texto-padrao">Recomendo usar o <a class="texto-link" href="https://brave.com/pt-br/"
+                    target="_blank">Brave</a> como navegador, com ele você deixa de ver propagandas</p>
 
 
             <!-- FILTROS -->
@@ -76,12 +77,15 @@
                 </div>
             </div>
 
-            <div class="search-container">
+            <form class="search-container" role="search">
                 <div class="search-input-wrapper">
-                    <input type="text" class="search-input" placeholder="Pesquise alguma palavra chave!">
+                    <input type="search" class="search-input" placeholder="Pesquise alguma palavra chave!"
+                        aria-label="Pesquisar sites" autocomplete="off" aria-expanded="false"
+                        aria-controls="searchDropdown">
+                    <button class="search-submit-btn" type="submit">Buscar</button>
                 </div>
-            </div>
-
+                <div id="searchDropdown" class="search-dropdown hidden" aria-live="polite"></div>
+            </form>
             <!-- GRID PRINCIPAL -->
             <div class="buttons-grid" id="buttonsGrid">
 
@@ -118,7 +122,8 @@
     <footer class="site-footer">
         <div class="site-footer-top">
             <h3 class="site-footer-brand">SensaçãoTech</h3>
-            <p class="site-footer-description">Os sites aqui são testados somente uma vez, caso encontre algo de estranho ou suspeito, entre em contato por gentileza</p>
+            <p class="site-footer-description">Os sites aqui são testados somente uma vez, caso encontre algo de
+                estranho ou suspeito, entre em contato por gentileza</p>
         </div>
 
         <div class="site-footer-columns">
