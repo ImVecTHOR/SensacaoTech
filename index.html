@@ -80,8 +80,9 @@
             <form class="search-container" role="search">
                 <div class="search-input-wrapper">
                     <input type="search" class="search-input" placeholder="Pesquise alguma palavra chave!"
-                        aria-label="Pesquisar sites" autocomplete="off" aria-expanded="false"
+                        aria-label="Pesquisar sites" autocomplete="off" enterkeyhint="go" aria-expanded="false"
                         aria-controls="searchDropdown">
+                        <button class="search-clear-btn hidden" type="button" aria-label="Limpar pesquisa">×</button>
                     <button class="search-submit-btn" type="submit">Buscar</button>
                 </div>
                 <div id="searchDropdown" class="search-dropdown hidden" aria-live="polite"></div>

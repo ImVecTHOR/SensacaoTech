@@ -74,6 +74,7 @@ const sitesRow = document.getElementById('sitesRow');
 const searchInput = document.querySelector('.search-input');
 const searchForm = document.querySelector('.search-container');
 const searchDropdown = document.getElementById('searchDropdown');
+const searchClearBtn = document.querySelector('.search-clear-btn');
 
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
@@ -92,6 +93,7 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
     let activeCategoryBtn = null;
     let sitesRowCloseTimer = null;
     let sitesRowExpandTimer = null;
+    let searchDebounceTimer = null;
 
     function resetActiveCategory() {
         document.querySelectorAll('.category-btn')
@@ -384,6 +386,51 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
         searchInput.setAttribute('aria-expanded', 'false');
     }
 
+    function clearPendingSearch() {
+        if (searchDebounceTimer) {
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = null;
+        }
+    }
+
+    function updateSearchClearButton() {
+        if (!searchClearBtn) return;
+        searchClearBtn.classList.toggle('hidden', !searchInput.value.trim());
+    }
+
+    function runSearch({ focusOnEmpty = false } = {}) {
+        const rawQuery = searchInput.value.trim();
+        const query = normalizeText(rawQuery);
+
+        resetActiveCategory();
+        clearSitesRow();
+
+        if (!query) {
+            closeSearchDropdown();
+            updateSearchClearButton();
+            if (focusOnEmpty) searchInput.focus();
+            return;
+        }
+
+        renderSearchDropdown(getSearchMatches(query), rawQuery);
+        updateSearchClearButton();
+    }
+
+    function scheduleAutomaticSearch() {
+        clearPendingSearch();
+
+        if (!searchInput.value.trim()) {
+            closeSearchDropdown();
+            updateSearchClearButton();
+            return;
+        }
+
+        searchDebounceTimer = setTimeout(() => {
+            searchDebounceTimer = null;
+            runSearch();
+        }, 400);
+    }
+
     function getSearchMatches(query) {
         const categoryButtons = [...document.querySelectorAll('.category-btn')];
         const categoryLabels = new Map(
@@ -434,7 +481,7 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
         if (!matches.length) {
             const empty = document.createElement('p');
             empty.className = 'search-empty';
-            empty.textContent = 'Tente buscar pelo nome do site, categoria ou uma palavra da descrição.';
+            empty.textContent = 'Tente buscar pelo nome do site, categoria ou uma palavra chave diferente.';
             searchDropdown.appendChild(empty);
             return;
         }
@@ -468,6 +515,7 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
                 .forEach(btn => btn.classList.remove('active'));
 
             closeSearchDropdown();
+            clearPendingSearch();
             resetActiveCategory();
             clearSitesRow();
 
@@ -500,6 +548,7 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
         const isSameButton = previousActiveCategoryBtn === categoryBtn;
 
         closeSearchDropdown();
+        clearPendingSearch();
 
         if (isSameButton) {
             resetActiveCategory();
@@ -528,23 +577,39 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
 
     searchForm.addEventListener('submit', event => {
         event.preventDefault();
-
-        const rawQuery = searchInput.value.trim();
-        const query = normalizeText(rawQuery);
-
-        resetActiveCategory();
-        clearSitesRow();
-
-        if (!query) {
-            closeSearchDropdown();
-            searchInput.focus();
-            return;
-        }
-
-        renderSearchDropdown(getSearchMatches(query), rawQuery);
+        clearPendingSearch();
+        runSearch({ focusOnEmpty: true });
     });
 
-    searchInput.addEventListener('input', closeSearchDropdown);
+    searchInput.addEventListener('search', () => {
+        clearPendingSearch();
+        runSearch({ focusOnEmpty: true });
+    });
+
+    searchInput.addEventListener('keydown', event => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        clearPendingSearch();
+        if (typeof searchForm.requestSubmit === 'function') {
+            searchForm.requestSubmit();
+        } else {
+            runSearch({ focusOnEmpty: true });
+        }
+    });
+
+    searchInput.addEventListener('input', () => {
+        closeSearchDropdown();
+        updateSearchClearButton();
+        scheduleAutomaticSearch();
+    });
+
+    searchClearBtn?.addEventListener('click', () => {
+        clearPendingSearch();
+        searchInput.value = '';
+        updateSearchClearButton();
+        closeSearchDropdown();
+        searchInput.focus();
+    });
 
     document.addEventListener('click', event => {
         const clickedInsideSearch = event.target.closest('.search-container');
@@ -578,5 +643,6 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
         modalOverlay.classList.remove('active');
     }
 
+    updateSearchClearButton();
     applyNewBadgeToCategories();
 }

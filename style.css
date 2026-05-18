@@ -191,6 +191,29 @@ body::before {
 }
 
 
+.search-clear-btn {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #00ffff;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.search-clear-btn:hover,
+.search-clear-btn:focus-visible {
+    border-color: #66ffff;
+    color: #66ffff;
+    background: transparent;
+    outline: none;
+}
+
 .search-submit-btn {
     flex: 0 0 auto;
     height: 46px;
@@ -299,6 +322,11 @@ body::before {
 /* Remove seleção padrão e centraliza */
 .search-input::-webkit-scrollbar {
     display: none;
+}
+
+.search-input::-webkit-search-cancel-button {
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .search-input {
@@ -765,9 +793,9 @@ body::before {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border: 2px solid #00ffff;
+    background: transparent;
+    color: #00ffff;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
@@ -775,8 +803,9 @@ body::before {
 }
 
 .modal-close:hover {
-    background: rgba(255, 0, 0, 0.3);
-    transform: scale(1.1);
+    background: transparent;
+    color: #66ffff;
+    border-color: #66ffff;
 }
 
 .sites-list {
@@ -1070,6 +1099,12 @@ body::before {
     .search-input-wrapper {
         flex-direction: column;
         border-radius: 24px;
+    }
+
+    .search-clear-btn {
+        width: 42px;
+        height: 42px;
+        align-self: center;
     }
 
     .search-submit-btn {
