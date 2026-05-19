@@ -244,8 +244,12 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
         siteBtn.className = `site-btn${extraClass ? ` ${extraClass}` : ''}`;
         siteBtn.type = 'button';
         siteBtn.dataset.name = site.name;
-        siteBtn.dataset.description = site.description;
-        siteBtn.dataset.url = site.url;
+        const tags = Array.isArray(site.tags) ? site.tags.filter(Boolean) : [];
+        const tagsAsStrong = tags
+            .map(tagText => `<br><strong>${String(tagText).toUpperCase()}</strong>`)
+            .join('');
+
+        siteBtn.dataset.description = `${site.description}${tagsAsStrong}`; siteBtn.dataset.url = site.url;
         siteBtn.textContent = site.name;
 
         if (site.isNew) {
@@ -253,7 +257,7 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
             badge.className = 'badge-new';
             badge.textContent = 'NOVO';
             siteBtn.appendChild(badge);
-        }
+        };
 
         return siteBtn;
     }

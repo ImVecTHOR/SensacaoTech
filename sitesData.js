@@ -2,8 +2,9 @@
 //         name: '',
 //         url: '',
 //         description: '',
-//         isNew:true
-//     },
+//         isNew:true,
+//         tags: ['EM INGLÊS', 'REQUER CONTA']//     
+//  },
 
 // <br><strong>EM INGLÊS</strong>
 // <strong> REQUER ASSINATURA</strong>
@@ -14,7 +15,8 @@ const sitesData = {
         {
             name: 'Floor 796',
             url: 'https://floor796.com/',
-            description: '<p>Floor 796 é um projeto feito por uma única pessoa que mostra um “andar” animado e interativo, cheio de personagens e referências da cultura pop.</p> Tem coisa de anime, games, filmes, séries e memes espalhados por todo lado. A ideia é explorar sem pressa, ir clicando, reconhecendo referências e encontrando vários easter eggs escondidos. É o tipo de site para curar o tédio.<br><strong>EM INGLÊS</strong>',
+            description: '<p>Floor 796 é um projeto feito por uma única pessoa que mostra um “andar” animado e interativo, cheio de personagens e referências da cultura pop.</p> Tem coisa de anime, games, filmes, séries e memes espalhados por todo lado. A ideia é explorar sem pressa, ir clicando, reconhecendo referências e encontrando vários easter eggs escondidos. É o tipo de site para curar o tédio.',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Zoomquilt',
@@ -24,7 +26,8 @@ const sitesData = {
         {
             name: 'Adrift',
             url: 'https://adrift.site/',
-            description: '<p>Esse é um site com uma proposta na minha opnião muito interessante, servir como um espaço virtual para você &quot;soltar&quot; pensamentos e dúvidas anônimas em forma de pequenos barquinhos de papel que navegam pela página, visitantes podem ver e clicar nesses barquinhos para ler mensagens anônimas deixadas por outras pessoas.</p> <strong>EM INGLÊS, use google tradutor na página</strong>',
+            description: '<p>Esse é um site com uma proposta na minha opnião muito interessante, servir como um espaço virtual para você &quot;soltar&quot; pensamentos e dúvidas anônimas em forma de pequenos barquinhos de papel que navegam pela página, visitantes podem ver e clicar nesses barquinhos para ler mensagens anônimas deixadas por outras pessoas.</p>',
+            tags: ['EM INGLÊS, use google tradutor na página'],
             isNew: true
         }
     ],
@@ -38,7 +41,8 @@ const sitesData = {
         {
             name: 'Class Central',
             url: 'https://www.classcentral.com/',
-            description: '<p>Class Central funciona com um agregador e motor de busca de cusos online, contendo materiais voltados a educação à distância de diversas plataformas e universidades do mundo todo.</p><strong>EM INGLÊS</strong>',
+            description: '<p>Class Central funciona com um agregador e motor de busca de cusos online, contendo materiais voltados a educação à distância de diversas plataformas e universidades do mundo todo.</p>',
+            tags: ['EM INGLÊS'],
         },
     ],
 
@@ -51,7 +55,8 @@ const sitesData = {
         {
             name: 'Exercism',
             url: 'https://exercism.org/',
-            description: '<p>Exercism é uma plataforma gratuita da prática de programação com centenas de exercícios em dezenas de linguagens e feedback de mentores reais.</p><strong>REQUER CONTA</strong>',
+            description: '<p>Exercism é uma plataforma gratuita da prática de programação com centenas de exercícios em dezenas de linguagens e feedback de mentores reais.</p>',
+            tags: ['REQUER CONTA'],
         },
         {
             name: 'FreeCodeCamp',
@@ -61,8 +66,9 @@ const sitesData = {
         {
             name: 'RoadMap.sh',
             url: 'https://roadmap.sh/',
-            description: '<p>Roadmap.sh é uma plataforma de aprendizado e orientação para desenvolvedores e pessoas na área de tecnologia, organizada em roadmaps estruturados em habilidades e tópicos que você pode seguir para aprender alguma tecnologia ou carreira específica, com links e recursos para cada etapa.</p> <strong>EM INGLÊS</strong>',
-            isNew:true
+            description: '<p>Roadmap.sh é uma plataforma de aprendizado e orientação para desenvolvedores e pessoas na área de tecnologia, organizada em roadmaps estruturados em habilidades e tópicos que você pode seguir para aprender alguma tecnologia ou carreira específica, com links e recursos para cada etapa.</p> ',
+            tags: ['EM INGLÊS'],
+            isNew: true
         },
     ],
 
@@ -80,7 +86,8 @@ const sitesData = {
         {
             name: 'Map Genie',
             url: 'https://mapgenie.io/',
-            description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p> <strong> EM INGLÊS</strong>',
+            description: '<p>mapgenie.io é um site com mapas interativos e guias de jogos populares. Em vez de mapas estáticos, você vê mapas clicáveis com itens, quests, colecionáveis e rotas marcadas, bom para quem quer platinar aquele jogo que tem colecionáveis</p>',
+            tags: ['EM INGLÊS'],
         },
     ],
 
@@ -93,7 +100,8 @@ const sitesData = {
         {
             name: 'Cursify',
             url: 'https://cursify.vercel.app/',
-            description: '<p>Esse é um site que serve como biblioteca de animações de cursor open-source pra desenvolvedores Web.</p> Ele reúne vários efeitos de cursor que você pode copiar e colar em projetos feitos com React e Next.js usando Tailwind CSS e Framer Motion. <br><strong>EM INGLÊS</strong>',
+            description: '<p>Esse é um site que serve como biblioteca de animações de cursor open-source pra desenvolvedores Web.</p> Ele reúne vários efeitos de cursor que você pode copiar e colar em projetos feitos com React e Next.js usando Tailwind CSS e Framer Motion. ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Devicon.dev',
@@ -110,7 +118,7 @@ const sitesData = {
             name: 'CSS Grid Generator',
             url: 'https://cssgridgenerator.io/',
             description: 'Nesse site você vai encontrar uma ferramenta prática para criar layouts com CSS grid sem ter que escrever todo o código manualmente. Ela fornece uma interface onde você define a estrutura e recebe o CSS pronto para copiar e colar no seu projeto.',
-            isNew:true
+            isNew: true
         },
     ],
 
@@ -118,12 +126,14 @@ const sitesData = {
         {
             name: 'Wolframalpha',
             url: 'https://www.wolframalpha.com/',
-            description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vêm com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p><strong>EM INGLÊS</strong>',
+            description: '<p>É uma ferramenta que responde diretamente a perguntas matemáticas, científicas e factuais, as respostas geralmente vêm com gráficos, tabelas, e resultados mais detalhados. </p><p>Funciona bem para ajudar com cálculos, análise de dados, física, química etc. Útil para estudar</p>',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Animagraffs',
             url: 'https://animagraffs.com/',
-            description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletânea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. <br><strong>EM INGLÊS</strong>',
+            description: '<p>Um site que transforma conceitos mais complexos em animações simples e visuais, o site oferece uma coletânea de videos animados para mostrar como algumas coisas funcionam.</p> Tem explicações animadas de ciência, tecnologia, economia, natureza e fenômenos do dia a dia. ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Archive.org',
@@ -135,7 +145,7 @@ const sitesData = {
             name: 'Ifixit',
             url: 'https://pt.ifixit.com/',
             description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
-            isNew:true
+            isNew: true
         },
     ],
 
@@ -143,17 +153,20 @@ const sitesData = {
         {
             name: 'GraphicsFamily',
             url: 'https://graphicsfamily.com/',
-            description: '<p>Esse site reúne recursos gráficos gratuitos e pagos para designers e criadores de conteúdo.</p> Ícones, ilustrações, mockups, templates e elementos visuais que você pode usar em projetos, apresentações, sites e posts <br><strong>EM INGLÊS</strong>',
+            description: '<p>Esse site reúne recursos gráficos gratuitos e pagos para designers e criadores de conteúdo.</p> Ícones, ilustrações, mockups, templates e elementos visuais que você pode usar em projetos, apresentações, sites e posts ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Pixeden',
             url: 'https://www.pixeden.com/',
-            description: 'Um site com mais alguns recursos visuais, mockups, ícones texturas e mais. Seja para web, apresentações ou arte gráfica, tem opções gratuitas e premium <br><strong>EM INGLÊS</strong>',
+            description: 'Um site com mais alguns recursos visuais, mockups, ícones texturas e mais. Seja para web, apresentações ou arte gráfica, tem opções gratuitas e premium ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Envato',
             url: 'https://elements.envato.com/',
-            description: '<p>Envato é um catálogo enorme de recursos, cheio de templates, gráficos, fotos, vídeos, fontes, efeitos de som e mais, bom para design de video, web ou qualquer outro projeto, <strong> mas requer assinatura</strong> <br><strong>EM INGLÊS</strong>',
+            description: '<p>Envato é um catálogo enorme de recursos, cheio de templates, gráficos, fotos, vídeos, fontes, efeitos de som e mais, bom para design de video, web ou qualquer outro projeto, <strong> mas requer assinatura</strong> ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Pacdora',
@@ -166,12 +179,14 @@ const sitesData = {
         {
             name: 'Smart Servier Medical',
             url: 'https://smart.servier.com/',
-            description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possivel baixar essas imagens <br><strong>EM INGLÊS</strong>',
+            description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possivel baixar essas imagens ',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Biodigital',
             url: 'https://human.biodigital.com',
-            description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p> <br><strong>EM INGLÊS</strong><br><strong>REQUER CONTA</strong>',
+            description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p> ',
+            tags: ['EM INGLÊS', 'REQUER CONTA'],
         },
     ],
 
@@ -198,20 +213,21 @@ const sitesData = {
             name: 'River Max Bittker',
             url: 'https://river.maxbittker.com/',
             description: '<p>Esse site é um projeto web experimental, funciona como uma interface de exploração visual. A ideia por trás é permitir que você navegue rapidamente por conjuntos de iamgens conectadas por similaridade usando machine learning para encontrar padrões.</p> <p>Creio que esse site ajuda para encontrar inspirações para quem curte design.</p>',
-            isNew:true
+            isNew: true
         },
         {
             name: 'PromptHero',
             url: 'https://prompthero.com/',
             description: 'É uma plataforma focada em prompt engineering, ou seja, um repositório e motor de busca de prompts usados para gerar conteúdo com modelos de IA.',
-            isNew:true
+            isNew: true
         },
     ],
     gastronomia: [
         {
             name: 'TasteAtlas',
             url: 'https://www.tasteatlas.com/map?ref=main-menu',
-            description: '<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> <strong>EM INGLÊS</strong>',
+            description: '<p>Esse site funciona como um mapa mundial de comidas e pratos tradicionais. Ele mostra pratos típicos, ingredientes e receitas de vários países, além do mapa, o site também fornece receitas entre outras coisas.</p> ',
+            tags: ['EM INGLÊS'],
         },
     ],
     utilitarios_ferramentas: [
@@ -236,7 +252,8 @@ const sitesData = {
         {
             name: 'Quizzity',
             url: 'https://david-peter.de/quizzity/',
-            description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p> <strong> EM INGLÊS</strong>',
+            description: '<p>Quizzity é um jogo de geografia onde você vê o nome de uma cidade e precisa clicar no mapa onde acha que ela está. Quanto mais próximo do local real, mais pontos você ganha, bom pra testar e treinar seu conhecimento de lugares do mundo.</p>',
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Lostgamer.io',
@@ -294,7 +311,8 @@ const sitesData = {
         {
             name: 'Eureca',
             url: 'https://app.eureca.me/',
-            description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se inscrever em processos seletivos e acompanhar ativídades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se inscrever em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> <strong> REQUER CONTA</strong> ',
+            description: '<p>Eureca é uma plataforma de vagas voltadas para <strong>estágio e trainee</strong>, oportunidades profissionais para ingressantes do mercado de trabalho. Você se cadastra e pode se inscrever em processos seletivos e acompanhar ativídades de capacitação.</p> <p>A ideia é oferecer um ambiente online onde candidatos conseguem se inscrever em oportunidades, construir perfil e acompanhar programas de desenvolvimento.</p> <br> ',
+            tags: ['REQUER CONTA'],
         },
         {
             name: 'Sólides',
@@ -311,8 +329,9 @@ const sitesData = {
         {
             name: 'Start My Car',
             url: 'https://www.startmycar.com/',
-            description: '<p>É um site comunitário voltado a carros e veículos onde os usuários podem perguntar e compartilhar problemas, experiências e soluções relacionadas a manutenção, defeitos ou dúvidas técnicas de automóveis.</p> <strong>EM INGLÊS</strong>',
-            isNew:true
+            description: '<p>É um site comunitário voltado a carros e veículos onde os usuários podem perguntar e compartilhar problemas, experiências e soluções relacionadas a manutenção, defeitos ou dúvidas técnicas de automóveis.</p> ',
+            tags: ['EM INGLÊS'],
+            isNew: true
         },
     ],
     quimica: [
@@ -326,7 +345,8 @@ const sitesData = {
         {
             name: 'Explore',
             url: 'https://explore.org/livecams',
-            description: '<p>Explore.org - Live Cams (tratando da seção &quot;Livecams&quot; do explore.org) é um canal de transmissão ao vivo de câmeras instaladas em ambiente naturais e habitats de animais ao redor do mundo. Ele faz parte da iniciativa maior do site Explore.org, uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p> <strong>EM INGLÊS</strong>',
+            description: '<p>Explore.org - Live Cams (tratando da seção &quot;Livecams&quot; do explore.org) é um canal de transmissão ao vivo de câmeras instaladas em ambiente naturais e habitats de animais ao redor do mundo. Ele faz parte da iniciativa maior do site Explore.org, uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p> ',
+            tags: ['EM INGLÊS'],
             isNew: true
         },
     ],
