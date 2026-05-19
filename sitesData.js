@@ -28,7 +28,6 @@ const sitesData = {
             url: 'https://adrift.site/',
             description: '<p>Esse é um site com uma proposta na minha opnião muito interessante, servir como um espaço virtual para você &quot;soltar&quot; pensamentos e dúvidas anônimas em forma de pequenos barquinhos de papel que navegam pela página, visitantes podem ver e clicar nesses barquinhos para ler mensagens anônimas deixadas por outras pessoas.</p>',
             tags: ['EM INGLÊS, use google tradutor na página'],
-            isNew: true
         }
     ],
 
@@ -68,7 +67,6 @@ const sitesData = {
             url: 'https://roadmap.sh/',
             description: '<p>Roadmap.sh é uma plataforma de aprendizado e orientação para desenvolvedores e pessoas na área de tecnologia, organizada em roadmaps estruturados em habilidades e tópicos que você pode seguir para aprender alguma tecnologia ou carreira específica, com links e recursos para cada etapa.</p> ',
             tags: ['EM INGLÊS'],
-            isNew: true
         },
     ],
 
@@ -112,13 +110,11 @@ const sitesData = {
             name: 'Ray.so',
             url: 'https://ray.so/',
             description: '<p>Ray.so é uma ferramenta direta para transformar trechos de código em imagens bem apresentadas, pensada especialmente para desenvolvedores que querem mostrar ou compartilhar código com estilo em blogs, redes sociais, portfólios ou documentação.</p><br> <p>No <strong>canto superior esquerdo</strong> existe um botão (Code Images), ao clicar nele você encontra outras ferramentas úteis</p>',
-            isNew: true
         },
         {
             name: 'CSS Grid Generator',
             url: 'https://cssgridgenerator.io/',
             description: 'Nesse site você vai encontrar uma ferramenta prática para criar layouts com CSS grid sem ter que escrever todo o código manualmente. Ela fornece uma interface onde você define a estrutura e recebe o CSS pronto para copiar e colar no seu projeto.',
-            isNew: true
         },
     ],
 
@@ -139,13 +135,11 @@ const sitesData = {
             name: 'Archive.org',
             url: 'https://archive.org/',
             description: 'Archive.org é uma biblioteca digital sem fins lucrativos, aqui rola uma preservação de versões arquivadas de páginas da web, áudios, livros, vídeos, softwares e muitas outras coisas para acesso público. É um dos maiores repositórios históricos de conteúdo digital já criados.',
-            isNew: true
         },
         {
             name: 'Ifixit',
             url: 'https://pt.ifixit.com/',
             description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
-            isNew: true
         },
     ],
 
@@ -213,13 +207,11 @@ const sitesData = {
             name: 'River Max Bittker',
             url: 'https://river.maxbittker.com/',
             description: '<p>Esse site é um projeto web experimental, funciona como uma interface de exploração visual. A ideia por trás é permitir que você navegue rapidamente por conjuntos de iamgens conectadas por similaridade usando machine learning para encontrar padrões.</p> <p>Creio que esse site ajuda para encontrar inspirações para quem curte design.</p>',
-            isNew: true
         },
         {
             name: 'PromptHero',
             url: 'https://prompthero.com/',
             description: 'É uma plataforma focada em prompt engineering, ou seja, um repositório e motor de busca de prompts usados para gerar conteúdo com modelos de IA.',
-            isNew: true
         },
     ],
     gastronomia: [
@@ -245,7 +237,6 @@ const sitesData = {
             name: 'Scanmalware',
             url: 'https://scanmalware.com/',
             description: '<p>Scanmalware é um serviço online que se apresenta como uma ferramenta gratuita para verificar URLs e sites em busca de malware ou outras possíveis ameaças de segurança</p> <p>Por opnião própria, o serviço é legal e já te bota uma noção sobre aquele link suspeito, mesmo assim, não fique 100% na onda desses sites</p>',
-            isNew: true
         },
     ],
     games_navegador: [
@@ -289,7 +280,6 @@ const sitesData = {
             name: 'Color Method',
             url: 'https://color.method.ac/',
             description: 'Esse aqui é um pequeno jogo interativo voltado a percepção de cores, o site te coloca numa espécie de desafio onde você precisa acertar a cor de força precisa (ou quase), explorando conceitos como matiz, saturação e cores complementares.',
-            isNew: true
         },
 
     ],
@@ -331,7 +321,6 @@ const sitesData = {
             url: 'https://www.startmycar.com/',
             description: '<p>É um site comunitário voltado a carros e veículos onde os usuários podem perguntar e compartilhar problemas, experiências e soluções relacionadas a manutenção, defeitos ou dúvidas técnicas de automóveis.</p> ',
             tags: ['EM INGLÊS'],
-            isNew: true
         },
     ],
     quimica: [
@@ -347,7 +336,6 @@ const sitesData = {
             url: 'https://explore.org/livecams',
             description: '<p>Explore.org - Live Cams (tratando da seção &quot;Livecams&quot; do explore.org) é um canal de transmissão ao vivo de câmeras instaladas em ambiente naturais e habitats de animais ao redor do mundo. Ele faz parte da iniciativa maior do site Explore.org, uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p> ',
             tags: ['EM INGLÊS'],
-            isNew: true
         },
     ],
     outros: [
@@ -360,19 +348,16 @@ const sitesData = {
             name: 'Lytube',
             url: 'https://www.lytube.com/?v=QNBO7wIU3yI',
             description: 'Lytube é site de terceiros de reprodução/vizualização de vídeos baseados em links do youtube, nele você consegue colocar um parâmetro de uma URL de alguma música no Youtube e aproveitar ele com sua letra original, funciona assim, vá em alguma música no youtube e procure no link dele o parâmetro depois do &quot;watch?v=&quot; e antes do &quot;&list=&quot;, copie e cole, dê play e aproveite a música, evite pegar músicas com videoclipe ou lyrics de canais não oficiais, caso não consiga dar play na música, atualize a página',
-            isNew: true
         },
         {
             name: 'CubisHeart',
             url: 'https://www.cubistheart.com/',
             description: 'Esse é um projeto artístico, cada página do site mostra um relógio diferente para cada dia, com um visual baseado em imagens coletadas da internet, é basicamente isso, vale a pena acessar o site, tenho certeza que você nunca viu tantas formas criativas de ver que horas são.',
-            isNew: true
         },
         {
             name: 'Pointer Pointer',
             url: 'https://pointerpointer.com/',
             description: 'É aquele tipo de site que cura seu tédio, basicamente, ao deixar o seu cursor do mouse em algum lugar da tela, você vai se deparar com uma foto de alguem apontando para seu cursor.',
-            isNew: true
         },
     ],
 };
