@@ -16,21 +16,6 @@ document.querySelectorAll('.nav-btn').forEach(navBtn => {
     });
 });
 
-/* =========================
-   CONTATO (SOBRE)
-========================= */
-const showEmailBtn = document.getElementById('showEmail');
-const emailField = document.getElementById('email');
-
-if (showEmailBtn && emailField) {
-    showEmailBtn.addEventListener('click', () => {
-        const user = 'techsensacao';
-        const domain = 'gmail.com';
-        emailField.textContent = `${user}@${domain}`;
-        showEmailBtn.remove();
-    });
-}
-
 
 
 /* =========================

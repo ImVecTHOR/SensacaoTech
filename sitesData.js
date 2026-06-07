@@ -58,6 +58,13 @@ const sitesData = {
             tags: ['REQUER CONTA'],
         },
         {
+            name: 'GeeksforGeeks',
+            url: 'https://www.geeksforgeeks.org/',
+            description: '<p>GeeksforGeeks. O site reúne milhares de artigos, tutoriais, exemplos de código e explicações sobre algoritmos, estruturas de dados, desenvolvimento web, inteligência artificial, bancos de dados e muito mais.</p><p>Além do conteúdo educativo, também possui exercícios, desafios de programação e materiais voltados para entrevistas técnicas. É um daqueles sites que praticamente todo programador acaba usando em algum momento da carreira.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
+        {
             name: 'FreeCodeCamp',
             url: 'https://www.freecodecamp.org/',
             description: 'FreeCodeCamp é uma organização sem fins lucrativos e plataforma educativa voltada a quem quer aprender programação e desenvolvimento de software gratuitamente. Desde fundamentos de HTML, CSS e JS até temas mais avançados como back-end, APIs e ciência de dados, tudo de forma auto-guiada e sem custo.',
@@ -66,6 +73,13 @@ const sitesData = {
             name: 'RoadMap.sh',
             url: 'https://roadmap.sh/',
             description: '<p>Roadmap.sh é uma plataforma de aprendizado e orientação para desenvolvedores e pessoas na área de tecnologia, organizada em roadmaps estruturados em habilidades e tópicos que você pode seguir para aprender alguma tecnologia ou carreira específica, com links e recursos para cada etapa.</p> ',
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'Flexbox Froggy',
+            url: 'https://flexboxfroggy.com/',
+            description: '<p>Flexbox Froggy é um jogo educativo que ensina CSS Flexbox de forma prática e interativa. Você controla sapos em vitórias-régias e precisa usar propriedades de Flexbox para posicioná-los corretamente em cada fase.</p>',
+            isNew: true,
             tags: ['EM INGLÊS'],
         },
     ],
@@ -116,9 +130,30 @@ const sitesData = {
             url: 'https://cssgridgenerator.io/',
             description: 'Nesse site você vai encontrar uma ferramenta prática para criar layouts com CSS grid sem ter que escrever todo o código manualmente. Ela fornece uma interface onde você define a estrutura e recebe o CSS pronto para copiar e colar no seu projeto.',
         },
+        {
+            name: 'SVG Logos',
+            url: 'https://svglogos.dev/',
+            description: '<p>SVG Logos é uma biblioteca online que reúne milhares de logos de tecnologias, linguagens de programação, frameworks, empresas e ferramentas em formato SVG. Os arquivos podem ser baixados e utilizados facilmente em sites, documentações, portfólios e projetos pessoais.</p><p>O acervo é bem organizado e conta com um sistema de busca rápido, facilitando encontrar logos de tecnologias específicas sem precisar procurar em diversos lugares diferentes. É um recurso bastante útil para desenvolvedores, designers e pessoas que montam interfaces ou páginas relacionadas à tecnologia.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
     ],
 
     informativo: [
+        {
+            name: 'Histography',
+            url: 'https://histography.io/',
+            description: '<p>Histography é um projeto visual interativo que exibe toda a história da humanidade numa linha do tempo navegável, desde o Big Bang até os dias atuais. Os eventos são retirados da Wikipedia e apresentados como pontos no tempo, você pode filtrar por períodos, categorias (guerras, invenções, arte, ciência etc.) e explorar livremente.</p><p>É o tipo de site que você abre para dar uma olhada rápida e acaba ficando muito mais tempo do que planejou.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'Future Timeline',
+            url: 'https://www.futuretimeline.net/',
+            description: '<p>Future Timeline é um projeto que tenta imaginar como será o futuro da humanidade com base em tendências tecnológicas, científicas, econômicas e sociais. O site organiza previsões em uma linha do tempo que vai desde os próximos anos até milhares e até milhões de anos no futuro.</p><p>Você encontra projeções sobre inteligência artificial, exploração espacial, medicina, mudanças climáticas, robótica, transumanismo e diversos outros temas. Mesmo quando as previsões são especulativas, o site é interessante para explorar cenários possíveis e descobrir ideias sobre como nosso mundo pode evoluir nas próximas décadas.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
         {
             name: 'Wolframalpha',
             url: 'https://www.wolframalpha.com/',
@@ -140,6 +175,19 @@ const sitesData = {
             name: 'Ifixit',
             url: 'https://pt.ifixit.com/',
             description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
+        },
+        {
+            name: 'Instructables',
+            url: 'https://www.instructables.com/',
+            description: '<p>Instructables é uma das maiores comunidades de projetos DIY (Faça Você Mesmo) da internet. O site reúne milhares de tutoriais passo a passo criados por usuários ensinando como construir, modificar, consertar ou criar praticamente qualquer coisa.</p><p>Você encontra projetos de eletrônica, Arduino, robótica, impressão 3D, marcenaria, decoração, culinária, programação e muito mais. É um ótimo lugar para encontrar inspiração, aprender habilidades novas e descobrir projetos para colocar a mão na massa.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'The Scale of the Universe 2',
+            url: 'https://htwins.net/scale2/',
+            description: '<p>The Scale of the Universe 2 é uma experiência interativa que permite navegar pela escala do universo usando uma barra de zoom. Você pode sair do tamanho de um ser humano até alcançar galáxias, aglomerados cósmicos e o universo observável, ou seguir na direção oposta até chegar em células, moléculas, átomos, partículas subatômicas e a escala de Planck.</p><p>Além de mostrar o tamanho relativo das coisas, o site fornece pequenas explicações sobre cada objeto encontrado no caminho. É um daqueles projetos simples que conseguem transmitir uma noção de escala que seria difícil entender apenas lendo números.</p>',
+            isNew: true,
         },
     ],
 
@@ -169,26 +217,30 @@ const sitesData = {
         },
     ],
 
-    biologia: [
+    ciencias: [
         {
             name: 'Smart Servier Medical',
             url: 'https://smart.servier.com/',
-            description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possivel baixar essas imagens ',
+            description: 'Esse é um banco online de ilustrações médicas, possui ilustrações de anatomia, patologias, biomoléculas e processos biológicos com imagens claras e fáceis de usar, sendo possível baixar essas imagens.',
             tags: ['EM INGLÊS'],
         },
         {
             name: 'Biodigital',
             url: 'https://human.biodigital.com',
-            description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p> ',
+            description: '<p>human.biodigital.com é um explorador 3D do corpo humano onde você pode ver ossos, músculos, órgãos, doenças e tratamentos em modelos interativos. Dá pra girar, ampliar, esconder partes e entender como tudo se conecta — bem útil pra quem curte anatomia ou quer visualizar o corpo de um jeito claro.</p>',
             tags: ['EM INGLÊS', 'REQUER CONTA'],
         },
-    ],
-
-    anime: [
         {
-            name: 'SakugaBooru',
-            url: 'https://www.sakugabooru.com/',
-            description: '<p>Esse é um site que funciona como um repositório de animações e cenas de anime (frames, cortes e movimentos). </p> É bem útil pra quem gosta de animes e quer cortes para edição.',
+            name: 'AtomAnimation',
+            url: 'https://atomanimation.com/',
+            description: '<p>Atom Animation é um projeto online que exibe animações interativas de estruturas atômicas e fornece uma tabela periódica diretamente no navegador. Na página principal você vê um modelo de átomo tendo a possibilidade de ajustar Prótons, elétrons e nêutrons.</p>',
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'Explore',
+            url: 'https://explore.org/livecams',
+            description: '<p>Explore.org - Live Cams é um canal de transmissão ao vivo de câmeras instaladas em ambientes naturais e habitats de animais ao redor do mundo. Faz parte de uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p>',
+            tags: ['EM INGLÊS'],
         },
     ],
 
@@ -199,19 +251,27 @@ const sitesData = {
             description: 'Um lugar bom para encontrar referências criativas onde você pode navegar por imagens, ilustrações, tipografia, arte e layout.',
         },
         {
-            name: 'Vectorizer.AI',
-            url: 'https://pt.vectorizer.ai/',
-            description: 'Ferramenta online que transforma imagens em vetor usando IA. <br><strong>Requer Assinatura</strong',
-        },
-        {
             name: 'River Max Bittker',
             url: 'https://river.maxbittker.com/',
-            description: '<p>Esse site é um projeto web experimental, funciona como uma interface de exploração visual. A ideia por trás é permitir que você navegue rapidamente por conjuntos de iamgens conectadas por similaridade usando machine learning para encontrar padrões.</p> <p>Creio que esse site ajuda para encontrar inspirações para quem curte design.</p>',
+            description: '<p>Esse site é um projeto web experimental, funciona como uma interface de exploração visual. A ideia por trás é permitir que você navegue rapidamente por conjuntos de imagens conectadas por similaridade usando machine learning para encontrar padrões.</p> <p>Creio que esse site ajuda para encontrar inspirações para quem curte design.</p>',
         },
+        {
+            name: 'Sweezy Cursors',
+            url: 'https://sweezy-cursors.com/',
+            description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. Tem vários estilos, fácil de usar — um recurso bacana para personalizar a estética do seu ambiente de trabalho.',
+        },
+    ],
+    inteligencia_artificial: [
         {
             name: 'PromptHero',
             url: 'https://prompthero.com/',
-            description: 'É uma plataforma focada em prompt engineering, ou seja, um repositório e motor de busca de prompts usados para gerar conteúdo com modelos de IA.',
+            description: 'É uma plataforma focada em prompt engineering, ou seja, um repositório e motor de busca de prompts usados para gerar conteúdo com modelos de IA como Stable Diffusion, Midjourney e ChatGPT.',
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'Vectorizer.AI',
+            url: 'https://pt.vectorizer.ai/',
+            description: 'Ferramenta online que usa IA para transformar imagens rasterizadas (PNG, JPG) em vetores limpos e escaláveis automaticamente. <br><strong>Requer Assinatura</strong>',
         },
     ],
     gastronomia: [
@@ -229,9 +289,11 @@ const sitesData = {
             description: 'SEO Studio é uma plataforma online gratuita que reúne várias ferramentas digitais voltadas para ajudar quem cria conteúdo, administra sites ou quer mais praticidade com certas tarefas na internet. Em vez de ser um único serviço, ele funciona como um hub de utilitários fáceis de acessar direto no navegador, com foco em SEO, análise de sites, manipulação de texto e até tarefas de Youtube e programação',
         },
         {
-            name: 'Sweezy-Cursors',
-            url: 'https://sweezy-cursors.com/',
-            description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. tem vários estilos, fácil de usar.',
+            name: 'DelphiTools',
+            url: 'https://tools.rmv.fyi/',
+            description: '<p>DelphiTools é uma coleção de ferramentas online que funciona diretamente no navegador, sem exigir cadastro, login ou coleta de dados. O site reúne dezenas de utilitários para trabalhar com imagens, texto, cores, tipografia, arquivos, desenvolvimento e muito mais.</p><p>Entre os recursos disponíveis estão geradores de QR Code, removedor de fundo, conversores de imagem, editores de texto, calculadoras, ferramentas para SVG e diversos outros utilitários. É o tipo de site que vale a pena guardar nos favoritos porque sempre acaba sendo útil em algum momento.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
         },
         {
             name: 'Scanmalware',
@@ -281,6 +343,13 @@ const sitesData = {
             url: 'https://color.method.ac/',
             description: 'Esse aqui é um pequeno jogo interativo voltado a percepção de cores, o site te coloca numa espécie de desafio onde você precisa acertar a cor de força precisa (ou quase), explorando conceitos como matiz, saturação e cores complementares.',
         },
+        {
+            name: 'Bird 1000',
+            url: 'https://www.bird1000.com/',
+            description: '<p>Bird1000 é um projeto que adapta um antigo conto armênio, Hazaran Blbul, em um jogo interativo, foca na busca por harmonia através da jornada do Príncipe Areg. Pressione a tecla de "espaço" para agir com o personagem.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
 
     ],
     idiomas: [
@@ -310,6 +379,15 @@ const sitesData = {
             description: '<p>Sólides Vagas é um portal de vagas da Sólides, aqui você encontra posições de trabalho anunciadas por empresas parceiras, possui oportunidades de emprego em diversas áreas e cidades do Brasil.</p> <p>Tem um certo foco em <strong>pequenas e médias empresas</strong></p> <br> <strong>REQUER CONTA</strong>',
         },
     ],
+    aprendizado_avulsos: [
+        {
+            name: 'ShortcutFoo',
+            url: 'https://www.shortcutfoo.com/',
+            description: '<p>ShortcutFoo é uma plataforma gamificada para aprender e memorizar atalhos de teclado de diversas ferramentas como VSCode, Git, Vim, Excel e outras.</p><p>O sistema funciona como um treino repetitivo com feedback imediato — você pratica o atalho até internalizar, em vez de só decorar uma lista. Bom para quem quer ganhar velocidade no dia a dia de desenvolvimento.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS', 'REQUER CONTA'],
+        },
+    ],
     automotivo: [
         {
             name: 'Auto Catalog Archive',
@@ -323,18 +401,12 @@ const sitesData = {
             tags: ['EM INGLÊS'],
         },
     ],
-    quimica: [
+    modelos_3d: [
         {
-            name: 'AtomAnimation',
-            url: 'https://atomanimation.com/',
-            description: '<p>Atom Animation é um projeto online que exibe animações interativas de estruturas atômicas e fornece uma tabela periódica diretamente no navegador. Na página principal você vê um modelo de átomo tendo a possibilidade de ajustar Prótons, elétrons e nêutrons.</p><strong>EM INGLÊNS</strong>',
-        },
-    ],
-    zoologia: [
-        {
-            name: 'Explore',
-            url: 'https://explore.org/livecams',
-            description: '<p>Explore.org - Live Cams (tratando da seção &quot;Livecams&quot; do explore.org) é um canal de transmissão ao vivo de câmeras instaladas em ambiente naturais e habitats de animais ao redor do mundo. Ele faz parte da iniciativa maior do site Explore.org, uma plataforma com foco em natureza, vida selvagem e educação ambiental.</p> ',
+            name: 'Sketchfab',
+            url: 'https://sketchfab.com/',
+            description: '<p>Sketchfab é uma plataforma voltada para visualização, compartilhamento e descoberta de modelos 3D diretamente no navegador. O site permite explorar milhões de modelos interativos criados por artistas, desenvolvedores, empresas, museus e comunidades de todo o mundo.</p><p>Você encontra desde personagens, veículos e cenários de jogos até artefatos históricos, equipamentos industriais e reconstruções científicas. Um dos grandes diferenciais é poder girar, ampliar e inspecionar os modelos em tempo real sem precisar baixar nenhum software.</p>',
+            isNew: true,
             tags: ['EM INGLÊS'],
         },
     ],
@@ -358,6 +430,19 @@ const sitesData = {
             name: 'Pointer Pointer',
             url: 'https://pointerpointer.com/',
             description: 'É aquele tipo de site que cura seu tédio, basicamente, ao deixar o seu cursor do mouse em algum lugar da tela, você vai se deparar com uma foto de alguem apontando para seu cursor.',
+        },
+        {
+            name: '10k Drum Machines',
+            url: 'https://10kdrummachines.com/',
+            description: '<p>10k Drum Machines é um acervo online dedicado a drum machines, aquelas máquinas usadas para criar batidas e ritmos eletrônicos. O site reúne modelos clássicos e modernos em uma interface simples onde você pode explorar informações, ouvir os sons característicos e conhecer equipamentos que marcaram a história da música eletrônica.</p><p>Mesmo para quem não produz música, é interessante navegar pelo catálogo e descobrir como diferentes baterias eletrônicas influenciaram gêneros musicais ao longo das décadas. É um daqueles sites de nicho que acaba sendo bem mais interessante do que parece à primeira vista.</p>',
+            isNew: true,
+            tags: ['EM INGLÊS'],
+        },
+        {
+            name: 'Stereo Drift',
+            url: 'https://stereodrift.github.io/',
+            description: '<p>Stereo Drift é um projeto web experimental que transforma músicas em uma experiência visual interativa. Conforme a faixa toca, formas, partículas e efeitos animados reagem ao áudio em tempo real, criando uma espécie de visualizador musical psicodélico diretamente no navegador.</p><p>É o tipo de site que vale mais pela experiência do que pela utilidade. Basta dar play, aumentar o volume e observar como os elementos visuais acompanham o ritmo e as características da música, resultando em uma apresentação bastante hipnótica.</p>',
+            isNew: true,
         },
     ],
 };
