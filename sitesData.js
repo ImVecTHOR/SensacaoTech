@@ -3,12 +3,8 @@
 //         url: '',
 //         description: '',
 //         isNew:true,
-//         tags: ['EM INGLÊS', 'REQUER CONTA']//     
+//         tags: ['EM INGLÊS', 'REQUER CONTA'] (se precisar)
 //  },
-
-// <br><strong>EM INGLÊS</strong>
-// <strong> REQUER ASSINATURA</strong>
-// <strong> REQUER CONTA</strong>
 
 const sitesData = {
     destaques: [
@@ -172,9 +168,19 @@ const sitesData = {
             description: 'Archive.org é uma biblioteca digital sem fins lucrativos, aqui rola uma preservação de versões arquivadas de páginas da web, áudios, livros, vídeos, softwares e muitas outras coisas para acesso público. É um dos maiores repositórios históricos de conteúdo digital já criados.',
         },
         {
-            name: 'Ifixit',
-            url: 'https://pt.ifixit.com/',
-            description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
+            name: 'The Scale of the Universe 2',
+            url: 'https://htwins.net/scale2/',
+            description: '<p>The Scale of the Universe 2 é uma experiência interativa que permite navegar pela escala do universo usando uma barra de zoom. Você pode sair do tamanho de um ser humano até alcançar galáxias, aglomerados cósmicos e o universo observável, ou seguir na direção oposta até chegar em células, moléculas, átomos, partículas subatômicas e a escala de Planck.</p><p>Além de mostrar o tamanho relativo das coisas, o site fornece pequenas explicações sobre cada objeto encontrado no caminho. É um daqueles projetos simples que conseguem transmitir uma noção de escala que seria difícil entender apenas lendo números.</p>',
+            isNew: true,
+        },
+    ],
+    faca_voce_mesmo: [
+        {
+            name: 'Blueprint',
+            url: 'https://www.blueprint.am/',
+            description: '<p>Plataforma de IA voltada para projetos eletrônicos e hardware. Basta descrever uma ideia em texto para receber diagramas, lista de componentes, instruções de montagem e outros recursos que ajudam a tirar um projeto do papel mais rapidamente.</p><p>É especialmente interessante para makers, estudantes, entusiastas de Arduino e ESP32 e pessoas que querem prototipar dispositivos sem começar tudo do zero. <strong>Possui recursos gratuitos, mas algumas funcionalidades e limites de uso dependem de conta e planos pagos.</strong></p>',
+            isNew: true,
+            tags: ['EM INGLÊS', 'REQUER CONTA PARA DETERMINADO USO', 'REQUER ASSINATURA PARA DETERMINADO USO']
         },
         {
             name: 'Instructables',
@@ -184,13 +190,11 @@ const sitesData = {
             tags: ['EM INGLÊS'],
         },
         {
-            name: 'The Scale of the Universe 2',
-            url: 'https://htwins.net/scale2/',
-            description: '<p>The Scale of the Universe 2 é uma experiência interativa que permite navegar pela escala do universo usando uma barra de zoom. Você pode sair do tamanho de um ser humano até alcançar galáxias, aglomerados cósmicos e o universo observável, ou seguir na direção oposta até chegar em células, moléculas, átomos, partículas subatômicas e a escala de Planck.</p><p>Além de mostrar o tamanho relativo das coisas, o site fornece pequenas explicações sobre cada objeto encontrado no caminho. É um daqueles projetos simples que conseguem transmitir uma noção de escala que seria difícil entender apenas lendo números.</p>',
-            isNew: true,
+            name: 'Ifixit',
+            url: 'https://pt.ifixit.com/',
+            description: 'Ifixit é um site dedicado a conserto e reparo com um certo foco em eletrônicos e gadgets. O principal é ensinar e apoiar as pessoas a reparar seus próprios dispositivos e equipamentos em vez de descartá-los.',
         },
     ],
-
     mockup: [
         {
             name: 'GraphicsFamily',
@@ -260,6 +264,13 @@ const sitesData = {
             url: 'https://sweezy-cursors.com/',
             description: 'Esse site possui uma lista enorme de cursores prontos para baixar no PC. Tem vários estilos, fácil de usar — um recurso bacana para personalizar a estética do seu ambiente de trabalho.',
         },
+        {
+            name: 'Brik',
+            url: 'https://brik.space/',
+            description: '<p>Ferramenta de IA para criar motion graphics, efeitos visuais, experiências interativas e elementos 3D a partir de prompts em linguagem natural. Em vez de gerar apenas uma imagem ou animação, a plataforma cria ferramentas reutilizáveis que podem ser ajustadas e remixadas conforme necessário.</p><p>É uma opção interessante para designers, criadores de conteúdo e profissionais de branding que querem produzir assets visuais sem programar. <strong>Permite exportar imagens, vídeos e elementos interativos, com recursos gratuitos e funcionalidades avançadas disponíveis mediante conta e planos pagos.</strong></p>',
+            isNew: true,
+            tags: ['EM INGLÊS', 'REQUER CONTA', 'REQUER ASSINATURA PARA DETERMINADO USO']
+        },
     ],
     inteligencia_artificial: [
         {
@@ -299,6 +310,20 @@ const sitesData = {
             name: 'Scanmalware',
             url: 'https://scanmalware.com/',
             description: '<p>Scanmalware é um serviço online que se apresenta como uma ferramenta gratuita para verificar URLs e sites em busca de malware ou outras possíveis ameaças de segurança</p> <p>Por opnião própria, o serviço é legal e já te bota uma noção sobre aquele link suspeito, mesmo assim, não fique 100% na onda desses sites</p>',
+        },
+        {
+            name: 'Behind the Email',
+            url: 'https://behindtheemail.com/',
+            description: '<p>Ferramenta de OSINT que permite pesquisar um endereço de e-mail para encontrar informações públicas associadas, como histórico profissional, formação, perfis online e outros sinais de presença digital. Pode ser útil para pesquisa de leads, verificação de identidade e análise de contatos.</p><p>O foco está em reunir dados públicos de diferentes fontes em um único lugar, economizando tempo durante investigações e pesquisas. <strong>O serviço exige conta e trabalha com planos de assinatura para liberar o acesso completo aos resultados.</strong></p>',
+            isNew: true,
+            tags: ['EM INGLÊS', 'REQUER CONTA PARA DETERMINADO USO', 'REQUER ASSINATURA PARA DETERMINADO USO']
+        },
+        {
+            name: 'Commontools',
+            url: 'https://www.commontools.org/',
+            description: '<p>Coleção com mais de 100 ferramentas online gratuitas para tarefas do dia a dia. Reúne utilitários para edição de texto, programação, conversão de arquivos, geração de gráficos, OCR, limpeza de dados, formatação de código e diversas outras funções em um só lugar.</p><p>É especialmente útil para estudantes, desenvolvedores, criadores de conteúdo e profissionais que precisam resolver pequenas tarefas rapidamente sem instalar programas. <strong>A maior parte das ferramentas pode ser usada diretamente no navegador, sem necessidade de cadastro.</strong></p>',
+            isNew: true,
+            tags: ['EM INGLÊS']
         },
     ],
     games_navegador: [
@@ -386,6 +411,13 @@ const sitesData = {
             description: '<p>ShortcutFoo é uma plataforma gamificada para aprender e memorizar atalhos de teclado de diversas ferramentas como VSCode, Git, Vim, Excel e outras.</p><p>O sistema funciona como um treino repetitivo com feedback imediato — você pratica o atalho até internalizar, em vez de só decorar uma lista. Bom para quem quer ganhar velocidade no dia a dia de desenvolvimento.</p>',
             isNew: true,
             tags: ['EM INGLÊS', 'REQUER CONTA'],
+        },
+        {
+            name: 'LunchBox Sessions',
+            url: 'https://www.lunchboxsessions.com/',
+            description: '<p>Plataforma de treinamento industrial focada em hidráulica, elétrica, instrumentação e automação. O conteúdo mistura aulas, vídeos 3D, exercícios e simulações interativas que permitem testar sistemas e componentes na prática.</p><p>O grande diferencial são as simulações de esquemas elétricos e hidráulicos em funcionamento, ajudando a entender diagnósticos, leitura de diagramas e resolução de falhas sem precisar de equipamentos físicos.</p><p>Possui alguns materiais gratuitos para experimentar, mas o acesso completo ao acervo exige assinatura. <strong>Vale especialmente para estudantes, técnicos, mecânicos e profissionais de manutenção industrial.</strong></p>',
+            isNew: true,
+            tags: ['EM INGLÊS', 'REQUER CONTA', 'REQUER ASSINATURA PARA USO COMPLETO']
         },
     ],
     automotivo: [
