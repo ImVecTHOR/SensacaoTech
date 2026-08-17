@@ -1428,3 +1428,225 @@ kbd {
     margin-top: 6px;
     margin-bottom: 2px;
 }
+
+/* =========================
+   CORREIOS
+========================= */
+.correios-content {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.correios-content h2 {
+    color: #00ffff;
+    font-size: 2.2rem;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.correios-subtitle {
+    font-size: 1.1rem;
+}
+
+.correios-warning {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 480px;
+}
+
+.correios-tabs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.correios-tab-btn {
+    background: transparent;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 10px 26px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.correios-tab-btn.active,
+.correios-tab-btn:hover {
+    border-color: #00ffff;
+    background: rgba(0, 255, 255, 0.12);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.correios-panel {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 18px;
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 28px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.correios-panel.active {
+    display: flex;
+}
+
+.correios-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.correios-field label {
+    color: #00ffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.correios-input {
+    width: 100%;
+    height: 46px;
+    padding: 0 16px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    outline: none;
+    font-size: 1rem;
+    color: #ffffff;
+    font-family: inherit;
+    caret-color: #00ffff;
+    transition: border-color 0.3s ease;
+}
+
+.correios-input:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.correios-file-input {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+.correios-file-name {
+    color: #999999;
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+
+.correios-password-row {
+    display: flex;
+    gap: 10px;
+}
+
+.correios-password-row .correios-input {
+    flex: 1;
+}
+
+.correios-mini-btn {
+    flex: 0 0 auto;
+    padding: 0 18px;
+    border: 2px solid rgba(0, 255, 255, 0.45);
+    border-radius: 14px;
+    background: rgba(0, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.correios-mini-btn:hover {
+    background: rgba(0, 255, 255, 0.22);
+    border-color: #00ffff;
+}
+
+.correios-hint {
+    color: #999999;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.correios-action-btn {
+    align-self: center;
+    min-width: 220px;
+}
+
+.correios-status {
+    min-height: 1.2em;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.correios-status-loading {
+    color: #00ffff;
+}
+
+.correios-status-success {
+    color: #4ade80;
+}
+
+.correios-status-error {
+    color: #f87171;
+}
+
+.correios-result {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+.correios-code-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 14px;
+    padding: 10px 16px;
+}
+
+.correios-label {
+    flex: 0 0 auto;
+    color: #999999;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.correios-code {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00ffff;
+    word-break: break-all;
+}
+
+@media (max-width: 768px) {
+    .correios-panel {
+        padding: 20px;
+    }
+
+    .correios-password-row {
+        flex-direction: column;
+    }
+
+    .correios-action-btn {
+        width: 100%;
+    }
+}

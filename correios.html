@@ -1,0 +1,173 @@
+<!--
+       PT/BR
+      Olá curioso(a), fique a vontade para olhar e mexer nesse código,
+    não vou me importar se você usar ele em algum outro projeto seu etc.
+    Mas devo alertar que usei IA para criar 100% da estrutura do site,
+    então tenha em mente disso, esse é um site "feito" por um amador, enfim, divirta-se!
+----------------------------------------------------------------------------------
+       English (Google Translate)
+      Hello curious one, feel free to look at and play around with this code,
+    i won't mind if you use it in any other project of yours, etc.
+    but I must warn you that I used AI to create 100% of the site's structure,
+    so keep that in mind, this is a site "made" by an amateur, anyway, have fun!
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correios - SensaçãoTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- HEADER IDÊNTICO -->
+    <header class="header">
+        <nav class="nav">
+            <button class="nav-btn" data-page="home">HOME</button>
+            <button class="nav-btn" data-page="about">SOBRE</button>
+            <button class="nav-btn" data-page="update">ATUALIZAÇÃO</button>
+            <button class="nav-btn active" data-page="correios">CORREIOS</button>
+        </nav>
+        <h1 class="header-title"><a class="titulo-link" href="index.html"
+                title="Ir para a página inicial">SensaçãoTech</a></h1>
+    </header>
+
+    <main class="main">
+        <div id="correiosPage" class="page active">
+            <div class="correios-content">
+                <h2>📮 Correios</h2>
+                <p class="texto-padrao correios-subtitle">Envie um arquivo cifrado para outro dispositivo usando um
+                    código e uma senha</p>
+                <p class="correios-warning">O arquivo é criptografado no seu navegador antes de ser enviado. O
+                    servidor nunca vê o conteúdo, só é possível abrir sabendo o código E a senha. O arquivo some após
+                    o primeiro download ou em até 24h.</p>
+
+                <div class="correios-tabs">
+                    <button class="correios-tab-btn active" data-tab="enviar">Enviar</button>
+                    <button class="correios-tab-btn" data-tab="receber">Receber</button>
+                </div>
+
+                <!-- ===================== ENVIAR ===================== -->
+                <section class="correios-panel active" id="enviarPanel">
+                    <div class="correios-field">
+                        <label for="correiosFileInput">Arquivo</label>
+                        <input type="file" id="correiosFileInput" class="correios-file-input">
+                        <span class="correios-file-name" id="correiosFileName">Nenhum arquivo selecionado</span>
+                    </div>
+
+                    <div class="correios-field">
+                        <label for="correiosSendPassword">Senha</label>
+                        <div class="correios-password-row">
+                            <input type="text" id="correiosSendPassword" class="correios-input"
+                                placeholder="Digite ou gere uma senha" autocomplete="off">
+                            <button type="button" class="correios-mini-btn" id="correiosGenBtn">Gerar</button>
+                        </div>
+                        <span class="correios-hint">Guarde essa senha, ela NÃO é salva no servidor e não pode ser
+                            recuperada.</span>
+                    </div>
+
+                    <button class="site-visit-btn correios-action-btn" id="correiosSendBtn">Enviar arquivo →</button>
+
+                    <div class="correios-status" id="correiosSendStatus"></div>
+
+                    <div class="correios-result hidden" id="correiosSendResult">
+                        <p>Compartilhe estas duas informações com quem vai receber (por canais diferentes, se
+                            possível):</p>
+                        <div class="correios-code-box">
+                            <span class="correios-label">Código</span>
+                            <span class="correios-code" id="correiosResultCode"></span>
+                            <button type="button" class="correios-mini-btn" id="correiosCopyCodeBtn">Copiar</button>
+                        </div>
+                        <div class="correios-code-box">
+                            <span class="correios-label">Senha</span>
+                            <span class="correios-code" id="correiosResultPassword"></span>
+                            <button type="button" class="correios-mini-btn"
+                                id="correiosCopyPasswordBtn">Copiar</button>
+                        </div>
+                        <p class="correios-hint" id="correiosResultExpiry"></p>
+                    </div>
+                </section>
+
+                <!-- ===================== RECEBER ===================== -->
+                <section class="correios-panel" id="receberPanel">
+                    <div class="correios-field">
+                        <label for="correiosCodeInput">Código</label>
+                        <input type="text" id="correiosCodeInput" class="correios-input" placeholder="Ex: A7K9QP2M"
+                            autocomplete="off">
+                    </div>
+
+                    <button class="site-visit-btn correios-action-btn" id="correiosLookupBtn">Buscar arquivo →</button>
+
+                    <div class="correios-status" id="correiosLookupStatus"></div>
+
+                    <div class="correios-field hidden" id="correiosReceivePasswordField">
+                        <label for="correiosReceivePassword">Senha</label>
+                        <input type="text" id="correiosReceivePassword" class="correios-input"
+                            placeholder="Digite a senha recebida" autocomplete="off">
+                        <button class="site-visit-btn correios-action-btn" id="correiosUnlockBtn">Desbloquear
+                            →</button>
+                    </div>
+
+                    <div class="correios-status" id="correiosUnlockStatus"></div>
+
+                    <div class="correios-result hidden" id="correiosFileInfo">
+                        <p><strong id="correiosFileInfoName"></strong></p>
+                        <p class="correios-hint" id="correiosFileInfoMeta"></p>
+                        <button class="site-visit-btn correios-action-btn" id="correiosDownloadBtn">Baixar
+                            arquivo ⬇</button>
+                        <div class="correios-status" id="correiosDownloadStatus"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-top">
+            <h3 class="site-footer-brand">SensaçãoTech</h3>
+            <p class="site-footer-description">Os sites aqui são testados somente uma vez, caso encontre algo
+                estranho ou suspeito, entre em contato por gentileza</p>
+        </div>
+
+        <div class="site-footer-columns">
+            <div class="site-footer-col">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="update.html">Atualizações</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                </ul>
+            </div>
+
+            <div class="site-footer-col">
+                <h4>Contato e Outras Plataformas</h4>
+                <ul>
+                    <a href="https://www.twitch.tv/jogador_blindado" target="_blank" rel="noopener noreferrer">
+                        <img class="footer-social-logo"
+                            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitch.svg" alt=""
+                            aria-hidden="true">
+                        Twitch
+                    </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ImVecTHOR" target="_blank" rel="noopener noreferrer">
+                            <img class="footer-social-logo"
+                                src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt=""
+                                aria-hidden="true">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>Feito no Brasil 🇧🇷</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="correios.js"></script>
+</body>
+
+</html>
