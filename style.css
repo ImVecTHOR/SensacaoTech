@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #1a1a1a;
@@ -56,24 +60,6 @@ body::before {
     z-index: 2;
 }
 
-
-.header-logo-wrap {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.header-logo {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.45));
-}
 
 .nav-btn {
     background: transparent;
@@ -369,12 +355,6 @@ body::before {
     transform: translateY(-5px);
 }
 
-.card-container {
-    width: 100%;
-    max-width: 800px;
-    min-height: 200px;
-}
-
 /* Layout compacto dos sites - BOTÕES COLADOS */
 .sites-list {
     display: flex;
@@ -384,14 +364,6 @@ body::before {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.site-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 140px;
 }
 
 .site-btn {
@@ -418,78 +390,6 @@ body::before {
     transform: translateY(-3px);
 }
 
-/* Card MAIOR com overlay e botão X */
-.site-detail-card {
-    margin-top: 10px;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px) scale(0.95);
-    background: rgba(40, 40, 40, 0.95);
-    border-radius: 15px;
-    padding: 25px;
-    border-left: 4px solid #00ffff;
-    opacity: 0;
-    z-index: 100;
-    max-width: 420px;
-    width: calc(100vw * 0.45);
-    min-width: 320px;
-    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.25);
-    backdrop-filter: blur(15px);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    /* ❌ NÃO INTERCEPTA CLIQUE quando invisível */
-}
-
-.site-detail-card.visible {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-    pointer-events: auto;
-    /* ✅ INTERCEPTA CLIQUE quando visível */
-}
-
-/* Botão X no canto superior direito */
-.close-card {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    width: 28px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.close-card:hover {
-    background: rgba(255, 0, 0, 0.2);
-    border-color: #ff4444;
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-}
-
-.site-detail-card h4 {
-    color: #00ffff;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    margin-right: 40px;
-    /* Espaço para o X */
-}
-
-.site-detail-description {
-    color: #cccccc;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
 .site-visit-btn {
     display: inline-flex;
     align-items: center;
@@ -510,54 +410,6 @@ body::before {
 .site-visit-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
-}
-
-/* Cards antigos (mantidos por compatibilidade) */
-.site-card {
-    background: rgba(40, 40, 40, 0.8);
-    border-radius: 20px;
-    padding: 30px;
-    border-left: 4px solid #00ffff;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.4s ease;
-}
-
-.site-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.site-card h3 {
-    color: #00ffff;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-.site-description {
-    color: #cccccc;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.visit-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #00ffff 0%, #00b4d8 100%);
-    color: #000;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.visit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
 }
 
 .about-content {
@@ -595,24 +447,9 @@ body::before {
         gap: 3px;
     }
 
-    .site-item {
-        min-width: 130px;
-    }
-
     .site-btn {
         padding: 7px 14px;
         font-size: 0.8rem;
-    }
-
-    .site-detail-card {
-        max-width: 90vw;
-        left: 50%;
-        transform: translateX(-50%) translateY(10px) scale(0.95);
-        padding: 20px;
-    }
-
-    .site-detail-card.visible {
-        transform: translateX(-50%) translateY(0) scale(1);
     }
 }
 
@@ -841,19 +678,6 @@ body::before {
     }
 }
 
-.categories-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.category-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .sites-row {
     width: 100%;
     display: flex;
@@ -967,19 +791,6 @@ body::before {
         padding: 8px 14px;
         font-size: 0.85rem;
     }
-}
-
-.email-btn {
-    padding: 16px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: #222;
-    color: #fff;
-}
-
-.email-btn:hover {
-    background: #0d3841;
 }
 
 /* =========================
@@ -1118,195 +929,6 @@ body::before {
 
     .search-result-category {
         max-width: 100%;
-    }
-}
-
-/* =========================
-   PÁGINA DE ATALHOS
-========================= */
-.shortcuts-content {
-    width: 100%;
-    max-width: 980px;
-}
-
-.shortcuts-content h2 {
-    color: #00ffff;
-    margin-bottom: 10px;
-    text-aligN: center;
-}
-
-.shortcuts-subtitle {
-    color: #c6c6c6;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.shortcut-category {
-    padding: 0 16px 16px;
-}
-
-.shortcut-category h3 {
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.shortcut-list li {
-    color: #d8d8d8;
-    line-height: 1.55;
-    font-size: 0.98rem;
-    position: relative;
-}
-
-kbd {
-    background: rgba(20, 20, 20, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 6px;
-    padding: 2px 6px;
-    font-size: 0.82rem;
-    color: #fff;
-}
-
-.software-shortcuts {
-    display: grid;
-    gap: 14px;
-}
-
-.shortcut-software-item {
-    display: grid;
-    background: rgba(0, 255, 255, 0.06);
-    border: 1px solid rgba(0, 255, 255, 0.22);
-    border-radius: 16px;
-    overflow: hidden;
-    max-height: 60px;
-    transition: max-height 0.35s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.shortcut-software-item.is-open {
-    max-height: 420px;
-    border-color: #00ffff;
-    box-shadow: 0 0 16px rgba(0, 255, 255, 0.28);
-    background: rgba(0, 255, 255, 0.12);
-}
-
-.shortcut-software-toggle {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    border: none;
-    color: #fff;
-    padding: 19px 18px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    font-size: 1rem;
-}
-
-.shortcut-software-toggle:hover,
-.shortcut-software-toggle.active {
-    background: rgba(0, 255, 255, 0.08);
-}
-
-.shortcut-software-title {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 1.06rem;
-}
-
-.shortcut-chevron {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1;
-    transition: transform 0.2s ease;
-}
-
-.shortcut-software-toggle.active .shortcut-chevron {
-    transform: rotate(180deg);
-}
-
-
-.shortcut-icon-img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-}
-
-.shortcut-category .shortcut-list li {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-.shortcut-software-item.is-open .shortcut-category .shortcut-list li {
-    animation: shortcutCascade 0.35s ease forwards;
-    animation-delay: calc(var(--item-index) * 70ms);
-}
-
-@keyframes shortcutCascade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .shortcuts-content {
-        max-width: 100%;
-    }
-
-    .software-shortcuts {
-        gap: 12px;
-    }
-
-    .shortcut-software-item {
-        max-height: 72px;
-    }
-
-    .shortcut-software-toggle {
-        padding: 16px 16px;
-        font-size: 1rem;
-    }
-
-    .shortcut-software-title {
-        font-size: 1.02rem;
-    }
-
-    .shortcut-list li {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .shortcuts-content h2 {
-        font-size: 1.28rem;
-    }
-
-    .shortcuts-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .shortcut-software-item {
-        border-radius: 14px;
-        max-height: 74px;
-    }
-
-    .shortcut-software-toggle {
-        padding: 26px 14px;
-        font-size: 1rem;
-    }
-
-    .shortcut-software-title {
-        font-size: 1rem;
-        padding-left: 20px;
-    }
-
-    .shortcut-icon-img {
-        width: 20px;
-        height: 20px;
-        left: -6px;
     }
 }
 

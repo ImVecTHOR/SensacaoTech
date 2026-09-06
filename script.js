@@ -19,39 +19,6 @@ document.querySelectorAll('.nav-btn').forEach(navBtn => {
 
 
 /* =========================
-   TELA DE ATALHOS (ACCORDION)
-========================= */
-const shortcutToggles = document.querySelectorAll('.shortcut-software-toggle');
-
-if (shortcutToggles.length) {
-    shortcutToggles.forEach(toggleBtn => {
-        toggleBtn.addEventListener('click', () => {
-            const softwareItem = toggleBtn.closest('.shortcut-software-item');
-            if (!softwareItem) return;
-
-            const willOpen = !softwareItem.classList.contains('is-open');
-
-            shortcutToggles.forEach(otherBtn => {
-                const otherItem = otherBtn.closest('.shortcut-software-item');
-                if (!otherItem) return;
-
-                otherItem.classList.remove('is-open');
-                otherItem.classList.add('is-collapsed');
-                otherBtn.setAttribute('aria-expanded', 'false');
-                otherBtn.classList.remove('active');
-            });
-
-            if (willOpen) {
-                softwareItem.classList.remove('is-collapsed');
-                softwareItem.classList.add('is-open');
-                toggleBtn.setAttribute('aria-expanded', 'true');
-                toggleBtn.classList.add('active');
-            }
-        });
-    });
-}
-
-/* =========================
    HOME LOGIC
 ========================= */
 const buttonsGrid = document.getElementById('buttonsGrid');
@@ -163,15 +130,15 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
             sitesRow.classList.remove('is-open');
             sitesRow.style.maxHeight = '0px';
             sitesRow.style.opacity = '0';
-        });
 
-        sitesRowCloseTimer = setTimeout(() => {
-            sitesRow.classList.add('hidden');
-            sitesRow.innerHTML = '';
-            sitesRow.removeAttribute('style');
-            sitesRowCloseTimer = null;
-            if (typeof onClosed === 'function') onClosed();
-        }, ROW_TRANSITION_MS);
+            sitesRowCloseTimer = setTimeout(() => {
+                sitesRow.classList.add('hidden');
+                sitesRow.innerHTML = '';
+                sitesRow.removeAttribute('style');
+                sitesRowCloseTimer = null;
+                if (typeof onClosed === 'function') onClosed();
+            }, ROW_TRANSITION_MS);
+        });
     }
 
     function getVisibleButtons() {
@@ -295,8 +262,21 @@ if (buttonsGrid && sitesRow && searchInput && searchForm && searchDropdown && ty
 
         const hadContent = Boolean(sitesRow.innerHTML.trim()) && sitesRow.classList.contains('is-open');
         const startHeight = startCollapsed ? 0 : (hadContent ? sitesRow.scrollHeight : 0);
+        const wasHidden = sitesRow.classList.contains('hidden');
 
         sitesRow.classList.remove('hidden');
+
+        if (wasHidden) {
+            // Coming from display:none, there's no previous frame to transition
+            // from, so the browser would otherwise snap straight to the open
+            // margin/opacity instead of animating them. Commit a "closed" frame
+            // first so the styles below have something to transition from.
+            sitesRow.classList.remove('is-open');
+            sitesRow.style.maxHeight = '0px';
+            sitesRow.style.opacity = '0';
+            void sitesRow.offsetHeight;
+        }
+
         sitesRow.classList.add('is-open');
         sitesRow.style.opacity = '1';
         sitesRow.style.maxHeight = `${startHeight}px`;
